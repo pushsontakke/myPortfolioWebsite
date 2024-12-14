@@ -1,10 +1,7 @@
-
-
-
-export default function Home(){
+export default function Resume() {
     return (
         <>
-            HOME route
+            Resume will show here.
         </>
     );
 }
