@@ -1,17 +1,25 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Syne, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const syneFont = Syne({
+  variable: "--font-syne",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  fallback: ["sans-serif"],
+});
+
+const interFont = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
+
+const jetBrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Piyush Sontakke | Portfolio",
-  description: "Portfolio project",
+  title: "Portfolio | Piyush Sontakke",
+  description: "Product Engineer who ships — not just codes.",
 };
 
 export default function RootLayout({
@@ -20,8 +28,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${poppins.variable} antialiased`}>{children}</body>
+    <html
+      lang="en"
+      className={`${syneFont.variable} ${interFont.variable} ${jetBrainsMono.variable} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }
