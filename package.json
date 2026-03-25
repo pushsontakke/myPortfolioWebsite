@@ -1,6 +1,7 @@
 {
   "name": "my_portfolio_website",
   "version": "0.1.0",
+  "author": "Piyush Sontakke",
   "private": true,
   "scripts": {
     "dev": "next dev",
