@@ -35,7 +35,7 @@ export const SITE = {
   email: "piyushsontakke2001@gmail.com",
   phone: "+91 7666601248",
   socials: {
-    github: "https://github.com/piyushsontakke",
+    github: "https://github.com/pushsontakke",
     linkedin: "https://linkedin.com/in/piyush-sontakke",
     twitter: "https://x.com/piyushsontakke",
   },
@@ -66,17 +66,44 @@ export const HERO_ROLES = [
 ] as const;
 
 export const HERO_HEADLINE_WORDS = [
-  "Product", "Engineer", "who", "ships", "—", "not", "just", "codes",
+  "Product",
+  "Engineer",
+  "who",
+  "ships",
+  "—",
+  "not",
+  "just",
+  "codes",
 ] as const;
 
 export const HERO_SUBTITLE =
   "Full-Stack Product Engineer · Pune · React · Django · GenAI";
 
 export const HERO_METRICS = [
-  { target: 995, display: (n: number) => `${(n / 10).toFixed(1)}%`, label: "Uptime", icon: "⬆" },
-  { target: 1000, display: (n: number) => `${n.toLocaleString()}+`, label: "Concurrent Users", icon: "👥" },
-  { target: 10000, display: (n: number) => `${(n / 1000).toFixed(0)}k+`, label: "Orders/Day", icon: "📦" },
-  { target: 500, display: (n: number) => `<${n}ms`, label: "API Response", icon: "⚡" },
+  {
+    target: 995,
+    display: (n: number) => `${(n / 10).toFixed(1)}%`,
+    label: "Uptime",
+    icon: "⬆",
+  },
+  {
+    target: 1000,
+    display: (n: number) => `${n.toLocaleString()}+`,
+    label: "Concurrent Users",
+    icon: "👥",
+  },
+  {
+    target: 10000,
+    display: (n: number) => `${(n / 1000).toFixed(0)}k+`,
+    label: "Orders/Day",
+    icon: "📦",
+  },
+  {
+    target: 500,
+    display: (n: number) => `<${n}ms`,
+    label: "API Response",
+    icon: "⚡",
+  },
 ] as const;
 
 // ── About Section ──
@@ -84,7 +111,11 @@ export const HERO_METRICS = [
 export const ABOUT_SIGNALS = [
   { icon: "Zap", label: "Ships Fast", desc: "0→1 product delivery" },
   { icon: "Code", label: "Full Ownership", desc: "Architecture to deployment" },
-  { icon: "Layers", label: "Systems Thinker", desc: "CAP theorem, hybrid locking" },
+  {
+    icon: "Layers",
+    label: "Systems Thinker",
+    desc: "CAP theorem, hybrid locking",
+  },
 ] as const;
 
 export const ABOUT_PARAGRAPHS = [
@@ -111,8 +142,16 @@ export const SKILL_GROUPS: SkillGroup[] = [
     icon: "Monitor",
     span: "lg:col-span-2",
     skills: [
-      "React", "Next.js", "TypeScript", "Tailwind CSS", "CSS Modules",
-      "Styled Components", "Redux", "Context API", "Zustand", "TanStack Query",
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "CSS Modules",
+      "Styled Components",
+      "Redux",
+      "Context API",
+      "Zustand",
+      "TanStack Query",
     ],
   },
   {
@@ -135,8 +174,14 @@ export const SKILL_GROUPS: SkillGroup[] = [
     icon: "Cloud",
     span: "lg:col-span-2",
     skills: [
-      "Docker", "AWS EC2", "Nginx", "Gunicorn",
-      "Redis", "Celery", "Celery Beat", "GitHub Actions",
+      "Docker",
+      "AWS EC2",
+      "Nginx",
+      "Gunicorn",
+      "Redis",
+      "Celery",
+      "Celery Beat",
+      "GitHub Actions",
     ],
   },
   {
@@ -164,8 +209,14 @@ export const SKILL_GROUPS: SkillGroup[] = [
     span: "lg:col-span-3",
     badge: "In Progress",
     skills: [
-      "Prompt Engineering", "RAG", "LangChain", "LlamaIndex",
-      "Vector Databases", "AI Agents", "Multi-Agent Systems", "LLMOps",
+      "Prompt Engineering",
+      "RAG",
+      "LangChain",
+      "LlamaIndex",
+      "Vector Databases",
+      "AI Agents",
+      "Multi-Agent Systems",
+      "LLMOps",
     ],
   },
 ];
@@ -200,8 +251,15 @@ export const PROJECTS = [
     statusColor: "accent" as const,
     access: { label: "Private · Company Product", icon: "Lock" },
     stack: [
-      "Next.js", "Django", "PostgreSQL", "Redis",
-      "Celery", "AWS EC2", "Nginx", "Gunicorn", "AWS S3",
+      "Next.js",
+      "Django",
+      "PostgreSQL",
+      "Redis",
+      "Celery",
+      "AWS EC2",
+      "Nginx",
+      "Gunicorn",
+      "AWS S3",
     ],
     metrics: [
       { value: "99.5%", label: "Uptime" },
@@ -226,11 +284,22 @@ export const PROJECTS = [
     statusColor: "warning" as const,
     access: { label: "In active development", icon: null as string | null },
     stack: [
-      "Next.js", "Django", "PostgreSQL", "Redis", "RabbitMQ",
-      "Celery", "Docker", "Prometheus", "Grafana", "Sentry",
+      "Next.js",
+      "Django",
+      "PostgreSQL",
+      "Redis",
+      "RabbitMQ",
+      "Celery",
+      "Docker",
+      "Prometheus",
+      "Grafana",
+      "Sentry",
     ],
     architecture: [
-      { key: "Hybrid Locking", value: "Redis SETNX + PostgreSQL SELECT FOR UPDATE" },
+      {
+        key: "Hybrid Locking",
+        value: "Redis SETNX + PostgreSQL SELECT FOR UPDATE",
+      },
       { key: "Idempotency Keys", value: "UUID on all payment ops" },
       { key: "CAP Theorem", value: "CP — Consistency over Availability" },
       { key: "Architecture", value: "SOA Monorepo" },
@@ -308,8 +377,15 @@ export const EDUCATION = {
     totalModules: 4,
     completedModules: 2,
     curriculum: [
-      "Prompt Engineering", "RAG Pipelines", "LLM APIs", "AI Agents",
-      "Multi-Agent Systems", "LangChain", "LlamaIndex", "Vector DBs", "LLMOps",
+      "Prompt Engineering",
+      "RAG Pipelines",
+      "LLM APIs",
+      "AI Agents",
+      "Multi-Agent Systems",
+      "LangChain",
+      "LlamaIndex",
+      "Vector DBs",
+      "LLMOps",
     ],
   },
 } as const;
