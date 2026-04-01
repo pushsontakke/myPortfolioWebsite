@@ -5,6 +5,7 @@ import { Sidebar } from "@/components/layout/Sidebar";
 
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
+import { Skills } from "@/components/sections/Skills";
 
 function SectionPlaceholder({ id, label }: { id: string; label: string }) {
   return (
@@ -26,7 +27,7 @@ export default function Home() {
       <main className="relative z-[2] lg:ml-[220px]">
         <Hero/>
         <About/>
-        <SectionPlaceholder id="skills" label="Skills" />
+        <Skills/>
         <SectionPlaceholder id="experience" label="Experience" />
         <SectionPlaceholder id="projects" label="Projects" />
         <SectionPlaceholder id="services" label="Services" />
