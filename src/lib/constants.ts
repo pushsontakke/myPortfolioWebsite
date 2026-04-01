@@ -39,7 +39,7 @@ export const SITE = {
     linkedin: "https://linkedin.com/in/piyush-sontakke",
     twitter: "https://x.com/piyushsontakke",
   },
-  resume: "/resume.pdf",
+  resume: "/Piyush_Sontakke_Resume.pdf",
 } as const;
 
 // ── Navigation ──
