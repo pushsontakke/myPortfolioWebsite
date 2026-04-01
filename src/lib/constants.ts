@@ -37,7 +37,7 @@ export const SITE = {
   socials: {
     github: "https://github.com/pushsontakke",
     linkedin: "https://linkedin.com/in/piyush-sontakke",
-    twitter: "https://x.com/piyushsontakke",
+    twitter: "https://x.com/PiyushSontakke4",
   },
   resume: "/Piyush_Sontakke_Resume.pdf",
 } as const;
