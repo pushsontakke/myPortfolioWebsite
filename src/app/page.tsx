@@ -13,7 +13,7 @@ function SectionPlaceholder({ id, label }: { id: string; label: string }) {
       id={id}
       className="min-h-screen flex items-center justify-center border-b border-border-subtle"
     >
-      <p className="font-display text-2xl text-content-muted">{label}</p>
+      <p className="font-display text-2xl text-content-muted">{label} - In_progress</p>
     </section>
   );
 }
