@@ -1,0 +1,45 @@
+// The // section-name label + heading + optional background watermark text
+
+import { cn } from "@/lib/utils";
+
+interface SectionHeaderProps {
+  tag: string;
+  title: React.ReactNode;
+  watermark?: string;
+  className?: string;
+}
+
+export function SectionHeader({
+  tag,
+  title,
+  watermark,
+  className,
+}: SectionHeaderProps) {
+  return (
+    <div className={cn("relative", className)}>
+      {/* Background watermark */}
+      {watermark && (
+        <div
+          className="absolute -top-8 left-0 pointer-events-none select-none font-display font-extrabold leading-none tracking-tighter"
+          style={{
+            fontSize: "clamp(5rem, 14vw, 13rem)",
+            color: "var(--color-accent)",
+            opacity: 0.03,
+          }}
+        >
+          {watermark}
+        </div>
+      )}
+
+      {/* Tag */}
+      <span className="font-mono text-label text-accent tracking-wide">
+        {tag}
+      </span>
+
+      {/* Title */}
+      <h2 className="mt-3 font-display font-bold text-content tracking-tight text-section-title">
+        {title}
+      </h2>
+    </div>
+  );
+}

@@ -3,6 +3,8 @@
 import { CursorGlow } from "@/components/ui/CursorGlow";
 import { Sidebar } from "@/components/layout/Sidebar";
 
+import { Hero } from "@/components/sections/Hero";
+
 function SectionPlaceholder({ id, label }: { id: string; label: string }) {
   return (
     <section
@@ -21,7 +23,7 @@ export default function Home() {
       <Sidebar />
 
       <main className="relative z-[2] lg:ml-[220px]">
-        <SectionPlaceholder id="hero" label="Hero" />
+        <Hero/>
         <SectionPlaceholder id="about" label="About" />
         <SectionPlaceholder id="skills" label="Skills" />
         <SectionPlaceholder id="experience" label="Experience" />
