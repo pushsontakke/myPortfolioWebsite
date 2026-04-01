@@ -18,12 +18,26 @@ export function Sidebar() {
   const [active, setActive] = useState("hero");
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  // Scroll to section from URL hash on page load
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (hash && NAV_ITEMS.some((item) => item.id === hash)) {
+      setTimeout(() => {
+        document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }, []);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setActive(entry.target.id);
+            // Update URL hash when section becomes active
+            if (entry.target.id) {
+              window.history.replaceState(null, "", `#${entry.target.id}`);
+            }
           }
         });
       },
@@ -40,6 +54,7 @@ export function Sidebar() {
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    window.history.replaceState(null, "", `#${id}`);
     setMobileOpen(false);
   };
 
