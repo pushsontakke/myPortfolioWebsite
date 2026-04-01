@@ -119,8 +119,8 @@ export const ABOUT_SIGNALS = [
 ] as const;
 
 export const ABOUT_PARAGRAPHS = [
-  'I think in systems, not just features. From database schema to deployment pipeline, I make architecture decisions — not just implement tasks handed to me. I\'m the engineer who asks "why are we building this?" before asking "how?"',
-  "For 2 years, I've been the Lead Product Engineer at Hushbox Gifting Solution Pvt Ltd, an early-stage startup in Pune. I built Gyfton — a B2C gift card e-commerce platform — alone, end-to-end. Architecture, backend, frontend, DevOps, payment integrations. Every technical decision. Every production deployment.",
+  'I think in systems, not just features. From database schema to deployment pipeline, I make architecture decisions, not just implement tasks handed to me. I\'m the engineer who asks "why are we building this?" before asking "how?"',
+  "For 2 years, I've been the Lead Product Engineer at Hushbox Gifting Solution Pvt Ltd, an early-stage startup in Pune. I built Gyfton, a B2C gift card e-commerce platform, alone, end-to-end. Architecture, backend, frontend, DevOps, payment integrations. Every technical decision. Every production deployment.",
   "Now I'm engineering a High Concurrency Event Ticketing Platform (hybrid locking, CAP theorem, distributed queues) and completing a PG Certification in Generative AI & Multi-Agent Systems from IIT Mandi. Evolving from full-stack to AI-capable founding engineer.",
 ] as const;
 
