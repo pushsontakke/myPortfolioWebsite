@@ -269,16 +269,11 @@ export function Hero() {
                   transition={{ duration: 0.5, delay: 0.9 + i * 0.1 }}
                   className="group p-5 rounded-2xl glass transition-all duration-300 hover:-translate-y-1"
                 >
-                  <div className="mb-1 text-[0.7rem] opacity-40">
-                    {metric.icon}
-                  </div>
                   <div
-                    className="font-display font-bold text-content tracking-tight"
-                    style={{
-                      fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
-                    }}
+                    className="font-display font-bold text-accent tracking-tight"
+                    style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)" }}
                   >
-                    {metric.display(counters[i])}
+                    {metric.value}
                   </div>
                   <div className="text-content-muted text-small tracking-wide">
                     {metric.label}

@@ -11,6 +11,7 @@ import {
   TestTube,
   Wrench,
   Brain,
+  Zap,
   type LucideIcon,
 } from "lucide-react";
 import useInView from "@/lib/hooks/useInView";
@@ -29,6 +30,7 @@ const iconMap: Record<string, LucideIcon> = {
   TestTube,
   Wrench,
   Brain,
+  Zap,
 };
 
 export function Skills() {
