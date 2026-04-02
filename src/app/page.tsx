@@ -9,6 +9,8 @@ import { Skills } from "@/components/sections/Skills";
 import { Experience } from "@/components/sections/Experience";
 import { Projects } from "@/components/sections/Projects";
 import { Services } from "@/components/sections/Services";
+import { Testimonials } from "@/components/sections/Testimonials";
+import { Education } from "@/components/sections/Education";
 
 function SectionPlaceholder({ id, label }: { id: string; label: string }) {
   return (
@@ -34,8 +36,8 @@ export default function Home() {
         <Experience />
         <Projects />
         <Services />
-        <SectionPlaceholder id="testimonials" label="Testimonials" />
-        <SectionPlaceholder id="education" label="Education" />
+        <Testimonials />
+        <Education />
         <SectionPlaceholder id="contact" label="Contact" />
       </main>
     </div>
