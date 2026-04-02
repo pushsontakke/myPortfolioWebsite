@@ -39,11 +39,11 @@ export function Hero() {
     return () => clearInterval(timer);
   }, []);
 
-  const counter0 = useAnimatedCounter(HERO_METRICS[0].target, 2200, visible);
-  const counter1 = useAnimatedCounter(HERO_METRICS[1].target, 2200, visible);
-  const counter2 = useAnimatedCounter(HERO_METRICS[2].target, 2200, visible);
-  const counter3 = useAnimatedCounter(HERO_METRICS[3].target, 2200, visible);
-  const counters = [counter0, counter1, counter2, counter3];
+  // const counter0 = useAnimatedCounter(HERO_METRICS[0].target, 2200, visible);
+  // const counter1 = useAnimatedCounter(HERO_METRICS[1].target, 2200, visible);
+  // const counter2 = useAnimatedCounter(HERO_METRICS[2].target, 2200, visible);
+  // const counter3 = useAnimatedCounter(HERO_METRICS[3].target, 2200, visible);
+  // const counters = [counter0, counter1, counter2, counter3];
 
   return (
     <section
