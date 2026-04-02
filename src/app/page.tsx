@@ -6,6 +6,9 @@ import { Sidebar } from "@/components/layout/Sidebar";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { Skills } from "@/components/sections/Skills";
+import { Experience } from "@/components/sections/Experience";
+import { Projects } from "@/components/sections/Projects";
+import { Services } from "@/components/sections/Services";
 
 function SectionPlaceholder({ id, label }: { id: string; label: string }) {
   return (
@@ -28,9 +31,9 @@ export default function Home() {
         <Hero/>
         <About/>
         <Skills/>
-        <SectionPlaceholder id="experience" label="Experience" />
-        <SectionPlaceholder id="projects" label="Projects" />
-        <SectionPlaceholder id="services" label="Services" />
+        <Experience />
+        <Projects />
+        <Services />
         <SectionPlaceholder id="testimonials" label="Testimonials" />
         <SectionPlaceholder id="education" label="Education" />
         <SectionPlaceholder id="contact" label="Contact" />
@@ -38,13 +41,3 @@ export default function Home() {
     </div>
   );
 }
-
-// export default function Home() {
-//   return (
-//     <div className="my-28">
-//     <div className="text-center text-8xl font-bold text-yellow-500">Portfolio | Piyush Sontakke
-//   </div>
-//     <div className="text-center text-7xl text-yellow-300">Product Engineer who ships - not just codes</div>
-//     </div>
-//   );
-// }

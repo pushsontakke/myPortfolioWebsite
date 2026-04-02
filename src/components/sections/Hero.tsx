@@ -39,11 +39,11 @@ export function Hero() {
     return () => clearInterval(timer);
   }, []);
 
-  const counter0 = useAnimatedCounter(HERO_METRICS[0].target, 2200, visible);
-  const counter1 = useAnimatedCounter(HERO_METRICS[1].target, 2200, visible);
-  const counter2 = useAnimatedCounter(HERO_METRICS[2].target, 2200, visible);
-  const counter3 = useAnimatedCounter(HERO_METRICS[3].target, 2200, visible);
-  const counters = [counter0, counter1, counter2, counter3];
+  // const counter0 = useAnimatedCounter(HERO_METRICS[0].target, 2200, visible);
+  // const counter1 = useAnimatedCounter(HERO_METRICS[1].target, 2200, visible);
+  // const counter2 = useAnimatedCounter(HERO_METRICS[2].target, 2200, visible);
+  // const counter3 = useAnimatedCounter(HERO_METRICS[3].target, 2200, visible);
+  // const counters = [counter0, counter1, counter2, counter3];
 
   return (
     <section
@@ -269,16 +269,11 @@ export function Hero() {
                   transition={{ duration: 0.5, delay: 0.9 + i * 0.1 }}
                   className="group p-5 rounded-2xl glass transition-all duration-300 hover:-translate-y-1"
                 >
-                  <div className="mb-1 text-[0.7rem] opacity-40">
-                    {metric.icon}
-                  </div>
                   <div
-                    className="font-display font-bold text-content tracking-tight"
-                    style={{
-                      fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
-                    }}
+                    className="font-display font-bold text-accent tracking-tight"
+                    style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)" }}
                   >
-                    {metric.display(counters[i])}
+                    {metric.value}
                   </div>
                   <div className="text-content-muted text-small tracking-wide">
                     {metric.label}

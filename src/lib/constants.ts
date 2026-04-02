@@ -14,8 +14,6 @@
 // - `EDUCATION` — degree (B.E. Computer Science, SPPU, 2023) + certification (IIT Mandi GenAI)
 // - `CONTACT_STATS`, `FOOTER_LINKS`
 
-// Reference the Figma Make exported components for the exact data — I've already audited and corrected the wrong fields (GitHub URL, email, payment gateways, degree).
-
 
 
 /* ─────────────────────────────────────────────
@@ -32,8 +30,8 @@ export const SITE = {
   tagline: "Product Engineer who ships — not just codes.",
   role: "Lead Product Engineer",
   location: "Pune, India",
-  email: "piyushsontakke2001@gmail.com",
-  phone: "+91 7666601248",
+  email: "piyushsontakke28@gmail.com",
+  phone: "+91 7507284768",
   socials: {
     github: "https://github.com/pushsontakke",
     linkedin: "https://linkedin.com/in/piyush-sontakke",
@@ -62,66 +60,35 @@ export const HERO_ROLES = [
   "Full-Stack Engineer",
   "Product Thinker",
   "Founding Engineer",
-  "AI Builder",
+  "Backend Specialist",
 ] as const;
 
 export const HERO_HEADLINE_WORDS = [
-  "Product",
-  "Engineer",
-  "who",
-  "ships",
-  "—",
-  "not",
-  "just",
-  "codes",
+  "Product", "Engineer", "who", "ships", "—", "not", "just", "codes",
 ] as const;
 
 export const HERO_SUBTITLE =
-  "Full-Stack Product Engineer · Pune · React · Django · GenAI";
+  "Full-Stack Product Engineer · Pune · Python · Django · React · GenAI";
 
 export const HERO_METRICS = [
-  {
-    target: 995,
-    display: (n: number) => `${(n / 10).toFixed(1)}%`,
-    label: "Uptime",
-    icon: "⬆",
-  },
-  {
-    target: 1000,
-    display: (n: number) => `${n.toLocaleString()}+`,
-    label: "Concurrent Users",
-    icon: "👥",
-  },
-  {
-    target: 10000,
-    display: (n: number) => `${(n / 1000).toFixed(0)}k+`,
-    label: "Orders/Day",
-    icon: "📦",
-  },
-  {
-    target: 500,
-    display: (n: number) => `<${n}ms`,
-    label: "API Response",
-    icon: "⚡",
-  },
+  { value: "2.5+", label: "Years Shipping" },
+  { value: "2", label: "Companies" },
+  { value: "3", label: "Payment Integrations" },
+  { value: "E2E", label: "Ownership" },
 ] as const;
 
 // ── About Section ──
 
 export const ABOUT_SIGNALS = [
   { icon: "Zap", label: "Ships Fast", desc: "0→1 product delivery" },
-  { icon: "Code", label: "Full Ownership", desc: "Architecture to deployment" },
-  {
-    icon: "Layers",
-    label: "Systems Thinker",
-    desc: "CAP theorem, hybrid locking",
-  },
+  { icon: "Code", label: "Full Ownership", desc: "Schema design to production deployment" },
+  { icon: "Layers", label: "Systems Thinker", desc: "Backend architecture, async pipelines" },
 ] as const;
 
 export const ABOUT_PARAGRAPHS = [
-  'I think in systems, not just features. From database schema to deployment pipeline, I make architecture decisions, not just implement tasks handed to me. I\'m the engineer who asks "why are we building this?" before asking "how?"',
-  "For 2 years, I've been the Lead Product Engineer at Hushbox Gifting Solution Pvt Ltd, an early-stage startup in Pune. I built Gyfton, a B2C gift card e-commerce platform, alone, end-to-end. Architecture, backend, frontend, DevOps, payment integrations. Every technical decision. Every production deployment.",
-  "Now I'm engineering a High Concurrency Event Ticketing Platform (hybrid locking, CAP theorem, distributed queues) and completing a PG Certification in Generative AI & Multi-Agent Systems from IIT Mandi. Evolving from full-stack to AI-capable founding engineer.",
+  'I think in systems, not just features. From database schema to deployment pipeline, I make architecture decisions - not just implement tasks handed to me. I\'m the engineer who asks "why are we building this?" before asking "how?"',
+  "For 2.5 years, I've built production backend systems across two companies. At Hushbox Gifting Solution, I own the full backend as Lead Product Engineer - APIs, payment integrations, async pipelines, deployment. At Techdenovo before that, I built fintech integration workflows connecting multiple payment gateways with 100% reconciliation accuracy.",
+  "Now I'm expanding into AI - completing a PG Certification in Generative AI & Multi-Agent Systems from IIT Mandi, and building with OpenAI APIs, LangChain, and RAG pipelines. Evolving from backend engineer to AI-capable product engineer.",
 ] as const;
 
 // ── Skills Section ──
@@ -138,20 +105,37 @@ export type SkillGroup = {
 
 export const SKILL_GROUPS: SkillGroup[] = [
   {
+    title: "Backend & APIs",
+    icon: "Server",
+    span: "lg:col-span-2",
+    skills: [
+      "Python", "Django", "Django REST Framework", "REST APIs",
+      "Webhook Architecture", "JWT Auth", "RBAC",
+    ],
+  },
+  {
+    title: "Async & Queues",
+    icon: "Zap",
+    skills: ["Celery", "Redis", "Background Jobs", "Cron Scheduling"],
+  },
+  {
+    title: "Databases",
+    icon: "Database",
+    span: "lg:col-span-1",
+    skills: ["PostgreSQL", "Django ORM", "Query Optimization"],
+  },
+  {
+    title: "Infrastructure",
+    icon: "Cloud",
+    skills: ["AWS EC2", "Docker", "Nginx", "Linux"],
+  },
+  {
     title: "Frontend",
     icon: "Monitor",
     span: "lg:col-span-2",
     skills: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "CSS Modules",
-      "Styled Components",
-      "Redux",
-      "Context API",
-      "Zustand",
-      "TanStack Query",
+      "React", "Next.js", "TypeScript", "Tailwind CSS",
+      "Redux", "Zustand", "TanStack Query",
     ],
   },
   {
@@ -160,39 +144,10 @@ export const SKILL_GROUPS: SkillGroup[] = [
     skills: [{ name: "Motion", learning: true }],
   },
   {
-    title: "Backend",
-    icon: "Server",
-    skills: ["Django", "DRF"],
-  },
-  {
-    title: "Databases",
-    icon: "Database",
-    skills: ["PostgreSQL", "MySQL", "MongoDB"],
-  },
-  {
-    title: "Infra / DevOps",
-    icon: "Cloud",
-    span: "lg:col-span-2",
-    skills: [
-      "Docker",
-      "AWS EC2",
-      "Nginx",
-      "Gunicorn",
-      "Redis",
-      "Celery",
-      "Celery Beat",
-      "GitHub Actions",
-    ],
-  },
-  {
-    title: "Observability",
-    icon: "Activity",
-    skills: ["Prometheus", "Grafana", "Sentry", "Structlog"],
-  },
-  {
     title: "Testing",
     icon: "TestTube",
     skills: [
+      "pytest",
       { name: "Jest", learning: true },
       { name: "Cypress", learning: true },
       { name: "Playwright", learning: true },
@@ -201,7 +156,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
   {
     title: "Tools",
     icon: "Wrench",
-    skills: ["Git", "Figma", "Postman"],
+    skills: ["Git", "Postman", "Figma", "Docker Compose"],
   },
   {
     title: "AI / GenAI",
@@ -209,8 +164,9 @@ export const SKILL_GROUPS: SkillGroup[] = [
     span: "lg:col-span-3",
     badge: "In Progress",
     skills: [
+      "OpenAI API", 
+      "RAG Pipelines",
       "Prompt Engineering",
-      "RAG",
       "LangChain",
       "LlamaIndex",
       "Vector Databases",
@@ -223,55 +179,72 @@ export const SKILL_GROUPS: SkillGroup[] = [
 
 // ── Experience Section ──
 
-export const EXPERIENCE = {
-  role: "Lead Product Engineer",
-  company: "Hushbox Gifting Solution Pvt Ltd",
-  period: "May 2023 – Present",
-  location: "Pune, India",
-  tags: ["Early-stage Startup", "Full Product Ownership", "Solo Engineer"],
-  summary:
-    "Owned Gyfton from tech stack selection to production deployment — architecture, backend, frontend, DevOps, integrations. Every decision. Alone.",
-  achievements: [
-    "Built complete B2C gift card e-commerce platform serving 10k+ orders/day",
-    "Integrated 3 payment gateways: Razorpay, PhonePe, Cashfree",
-    "Designed async Celery pipeline for voucher delivery + email notifications",
-    "Implemented OTP auth, JWT tokens, GST engine, QR code delivery system",
-    "Built real-time balance monitoring with auto-recharge alerts",
-    "Achieved 99.5% uptime with <500ms average API response time",
-  ],
-} as const;
+export const EXPERIENCES = [
+  {
+    role: "Lead Product Engineer",
+    company: "Hushbox Gifting Solution Pvt. Ltd.",
+    period: "Nov 2025 – Present",
+    location: "Remote",
+    tags: ["Startup", "Full Backend Ownership", "Remote"],
+    summary:
+      "Own the full backend lifecycle — schema design, API development, payment integrations, Docker/Nginx deployment on AWS EC2, and production stability monitoring.",
+    achievements: [
+      "Integrated third-party payment gateways (SabPaisa, Pinelabs) with custom AES encryption and webhook-based callback handling",
+      "Built async task pipelines using Celery and Redis for order processing and real-time balance updates",
+      "Designed scalable backend services using Django and PostgreSQL with optimized ORM queries and pagination",
+      "Implemented webhook receivers for async data fetching from payment and logistics providers with retry and error handling",
+      "Scheduled cron-based background processes to sync real-time account balances and inventory state",
+      "Owned full backend lifecycle: schema design, API development, Docker/Nginx deployment on AWS EC2",
+    ],
+  },
+  {
+    role: "Associate Software Engineer",
+    company: "Techdenovo",
+    period: "May 2024 – Nov 2025",
+    location: "India",
+    tags: ["Fintech", "API Integrations", "Backend"],
+    summary:
+      "Built fintech integration workflows connecting SabPaisa, PhonePe, and Pinelabs APIs with 100% reconciliation accuracy.",
+    achievements: [
+      "Developed Python-based fintech integration workflows connecting SabPaisa, PhonePe, and Pinelabs APIs",
+      "Built webhook handlers and callback processing for payment status updates with retry logic",
+      "Refactored legacy APIs using Django REST Framework — improved data consistency by 50% and response time by 15%",
+      "Built backend automation for order, transaction, and operational workflows with async job scheduling",
+      "Debugged production issues across services, improving uptime and reliability under peak traffic",
+    ],
+  },
+] as const;
 
 // ── Projects Section ──
 
 export const PROJECTS = [
   {
     title: "Gyfton",
-    subtitle: "B2C gift card e-commerce — owned end-to-end",
+    subtitle: "Product Gifting Platform — backend architecture & API development",
     status: "Production" as const,
     statusColor: "accent" as const,
     access: { label: "Private · Company Product", icon: "Lock" },
     stack: [
       "Next.js",
-      "Django",
+      "Python",
+      "Django Rest Framework",
       "PostgreSQL",
       "Redis",
       "Celery",
       "AWS EC2",
       "Nginx",
       "Gunicorn",
+      "Docker",
       "AWS S3",
     ],
-    metrics: [
-      { value: "99.5%", label: "Uptime" },
-      { value: "1000+", label: "Users" },
-      { value: "10k+", label: "Orders/Day" },
-    ],
+    metrics: [] as { value: string; label: string }[],
     highlights: [
-      "3 payment gateways: Razorpay, PhonePe, Cashfree",
-      "Async Celery pipeline for voucher + email delivery",
-      "OTP auth + JWT + GST engine + QR code delivery",
-      "Real-time balance monitoring + auto-recharge",
-      "Redis caching with PostgreSQL fallback for resilience",
+      "Architected backend APIs for products, orders, categories, and user management with clean service separation",
+      "Implemented secure JWT authentication and role-based access control (RBAC)",
+      "Built webhook-driven integrations for async data fetching from external catalogue and logistics providers",
+      "Background task processing using Celery/Redis for order lifecycle management and audit logging",
+      "Automated tests (pytest) covering API endpoints, webhook simulations, and integration edge cases",
+      "Deployed on AWS EC2 with Docker Compose and Nginx, optimized for high concurrency",
     ],
     cta: { label: "View Case Study", href: null as string | null },
     github: null as string | null,
@@ -284,22 +257,18 @@ export const PROJECTS = [
     statusColor: "warning" as const,
     access: { label: "In active development", icon: null as string | null },
     stack: [
-      "Next.js",
-      "Django",
-      "PostgreSQL",
-      "Redis",
-      "RabbitMQ",
-      "Celery",
-      "Docker",
-      "Prometheus",
-      "Grafana",
+      "Django", 
+      "DRF", 
+      "PostgreSQL", 
+      "Redis",      
+      "Celery", 
+      "Docker", 
+      "Prometheus", 
+      "Grafana", 
       "Sentry",
     ],
     architecture: [
-      {
-        key: "Hybrid Locking",
-        value: "Redis SETNX + PostgreSQL SELECT FOR UPDATE",
-      },
+      { key: "Hybrid Locking", value: "Redis SETNX + PostgreSQL SELECT FOR UPDATE" },
       { key: "Idempotency Keys", value: "UUID on all payment ops" },
       { key: "CAP Theorem", value: "CP — Consistency over Availability" },
       { key: "Architecture", value: "SOA Monorepo" },
@@ -317,8 +286,8 @@ export const PROJECTS = [
       "Tickets: VIP · Early Bird · Standard",
     ],
     highlights: [],
-    cta: { label: "View on GitHub", href: "https://github.com/piyushsontakke" },
-    github: "https://github.com/piyushsontakke",
+    cta: { label: "View on GitHub", href: "https://github.com/pushsontakke" },
+    github: "https://github.com/pushsontakke",
   },
 ];
 
@@ -362,14 +331,14 @@ export const SERVICES = [
 
 export const EDUCATION = {
   degree: {
-    title: "B.E. — Computer Science",
-    institution: "Savitribai Phule Pune University",
+    title: "B.Tech — Electronics & Communication Engineering",
+    institution: "Rajiv Gandhi College of Engineering, Chandrapur",
     year: "2023",
     location: "India",
   },
   certification: {
     title: "PG Certification in Generative AI & Multi-Agent Systems",
-    institution: "IIT Mandi-TIH × Coding Ninjas",
+    institution: "CodingNinjas × IIT Mandi-TIH",
     badge: "NSDC Approved · Govt. Recognized · Skill India",
     status: "In Progress",
     currentModule: "Module 2 of 4",
@@ -393,14 +362,14 @@ export const EDUCATION = {
 // ── Contact Section ──
 
 export const CONTACT_ROLES =
-  "Founding Engineer · Product Engineer · Sr. UI Engineer";
+  "Founding Engineer · Product Engineer · Backend Engineer";
 
 export const CONTACT_SERVICES = "MVPs · AI Features · Full-Stack SaaS";
 
 export const CONTACT_STATS = [
-  { value: "2+", label: "Years" },
+  { value: "2.5+", label: "Years" },
+  { value: "2", label: "Companies" },
   { value: "1", label: "Product Built" },
-  { value: "10k+", label: "Daily Orders" },
 ] as const;
 
 // ── Footer ──
