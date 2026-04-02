@@ -7,6 +7,7 @@ import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { Skills } from "@/components/sections/Skills";
 import { Experience } from "@/components/sections/Experience";
+import { Projects } from "@/components/sections/Projects";
 
 function SectionPlaceholder({ id, label }: { id: string; label: string }) {
   return (
@@ -30,7 +31,7 @@ export default function Home() {
         <About/>
         <Skills/>
         <Experience />
-        <SectionPlaceholder id="projects" label="Projects" />
+        <Projects />
         <SectionPlaceholder id="services" label="Services" />
         <SectionPlaceholder id="testimonials" label="Testimonials" />
         <SectionPlaceholder id="education" label="Education" />

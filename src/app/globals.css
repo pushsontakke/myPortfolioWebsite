@@ -43,6 +43,7 @@
   --font-size-tag: 0.78rem;
   --font-size-small: 0.72rem;
   --font-size-tiny: 0.68rem;
+  --font-size-card-title: 1.6rem;
 
   /* Shadows */
   --shadow-glow-accent: 0 0 20px rgba(234, 179, 8, 0.35), 0 2px 8px rgba(0, 0, 0, 0.3);
