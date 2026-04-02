@@ -15,7 +15,11 @@ import { EXPERIENCES } from "@/lib/constants";
 
 export function Experience() {
   const { ref, inView } = useInView(0.12);
-  const [expanded, setExpanded] = useState(false);
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+
+  const toggleExpand = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
 
   return (
     <section
@@ -52,27 +56,29 @@ export function Experience() {
             }}
           />
 
-          {/* Experience entry */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.5 }}
-            className="relative pl-14 lg:pl-24"
-          >
-            {/* Timeline dot */}
-            <div className="absolute left-3 lg:left-6 top-3 w-5 h-5 rounded-full bg-accent flex items-center justify-center shadow-glow-accent">
-              <Briefcase size={9} className="text-surface" />
-            </div>
+          {/* Experience entries */}
+          <div className="flex flex-col gap-10">
+            {EXPERIENCES.map((exp, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -30 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.7, delay: 0.5 + index * 0.2 }}
+                className="relative pl-14 lg:pl-24"
+              >
+                {/* Timeline dot */}
+                <div className="absolute left-3 lg:left-6 top-3 w-5 h-5 rounded-full bg-accent flex items-center justify-center shadow-glow-accent">
+                  <Briefcase size={9} className="text-surface" />
+                </div>
 
-            {/* Connector line */}
-            <div
-              className="absolute left-[2.4rem] lg:left-[3.4rem] top-5 w-4 lg:w-8 h-px"
-              style={{ background: "var(--color-accent-border)" }}
-            />
-            {/* Card */}
-            {
-              EXPERIENCES.map((exp, index) => (
-                <div key={index} className="p-6 lg:p-8 rounded-2xl glass">
+                {/* Connector line */}
+                <div
+                  className="absolute left-[2.4rem] lg:left-[3.4rem] top-5 w-4 lg:w-8 h-px"
+                  style={{ background: "var(--color-accent-border)" }}
+                />
+
+                {/* Card */}
+                <div className="p-6 lg:p-8 rounded-2xl glass">
                   {/* Header row */}
                   <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
                     <div>
@@ -114,18 +120,24 @@ export function Experience() {
 
                   {/* Expand toggle */}
                   <button
-                    onClick={() => setExpanded(!expanded)}
+                    onClick={() => toggleExpand(index)}
                     className="mt-5 flex items-center gap-1.5 cursor-pointer text-accent text-[0.82rem] transition-all duration-200 hover:-translate-y-px group"
                   >
                     <span className="group-hover:underline">
-                      {expanded ? "Show less" : "Key achievements"}
+                      {expandedIndex === index
+                        ? "Show less"
+                        : "Key achievements"}
                     </span>
-                    {expanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+                    {expandedIndex === index ? (
+                      <ChevronUp size={14} />
+                    ) : (
+                      <ChevronDown size={14} />
+                    )}
                   </button>
 
                   {/* Expandable achievements */}
                   <AnimatePresence>
-                    {expanded && (
+                    {expandedIndex === index && (
                       <motion.div
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
@@ -153,9 +165,9 @@ export function Experience() {
                     )}
                   </AnimatePresence>
                 </div>
-              ))
-            }
-          </motion.div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
