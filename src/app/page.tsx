@@ -11,17 +11,7 @@ import { Projects } from "@/components/sections/Projects";
 import { Services } from "@/components/sections/Services";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Education } from "@/components/sections/Education";
-
-function SectionPlaceholder({ id, label }: { id: string; label: string }) {
-  return (
-    <section
-      id={id}
-      className="min-h-screen flex items-center justify-center border-b border-border-subtle"
-    >
-      <p className="font-display text-2xl text-content-muted">{label} - In_progress</p>
-    </section>
-  );
-}
+import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
   return (
@@ -30,15 +20,15 @@ export default function Home() {
       <Sidebar />
 
       <main className="relative z-[2] lg:ml-[220px]">
-        <Hero/>
-        <About/>
-        <Skills/>
+        <Hero />
+        <About />
+        <Skills />
         <Experience />
         <Projects />
         <Services />
         <Testimonials />
         <Education />
-        <SectionPlaceholder id="contact" label="Contact" />
+        <Contact />
       </main>
     </div>
   );
