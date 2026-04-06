@@ -1,38 +1,46 @@
 import type { Metadata } from "next";
 import { Syne, Inter, JetBrains_Mono } from "next/font/google";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import "./globals.css";
 
-const syneFont = Syne({
+const syne = Syne({
+  subsets: ["latin"],
   variable: "--font-syne",
-  subsets: ["latin"],
+  display: "swap",
 });
 
-const interFont = Inter({
+const inter = Inter({
+  subsets: ["latin"],
   variable: "--font-inter",
-  subsets: ["latin"],
+  display: "swap",
 });
 
-const jetBrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains",
+const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
+  variable: "--font-jetbrains",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Portfolio | Piyush Sontakke",
-  description: "Product Engineer who ships — not just codes.",
+  description:
+    "Product Engineer who ships — not just codes. Full-Stack · Django Rest Framework · React · GenAI",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html
       lang="en"
-      className={`${syneFont.variable} ${interFont.variable} ${jetBrainsMono.variable} h-full antialiased`}
+      suppressHydrationWarning
+      className={`${syne.variable} ${inter.variable} ${jetbrains.variable}`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="font-body antialiased">
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }

@@ -1,43 +1,14 @@
 @import "tailwindcss";
 
-/* ─────────────────────────────────────────────
-   Design Tokens
-   ───────────────────────────────────────────── */
+/* ─── Design Tokens ─── */
+
 @theme inline {
-  /* Colors — Surface */
-  --color-surface: #0A0A0F;
-  --color-surface-alt: #111116;
-  --color-surface-card: #16161E;
-  --color-surface-elevated: #1E1E2E;
-
-  /* Colors — Content */
-  --color-content: #F8F8FF;
-  --color-content-secondary: #94A3B8;
-  --color-content-muted: #64748B;
-  --color-content-faint: #334155;
-
-  /* Colors — Accent (Yellow) */
-  --color-accent: #EAB308;
-  --color-accent-glow: rgba(234, 179, 8, 0.4);
-  --color-accent-dim: rgba(234, 179, 8, 0.08);
-  --color-accent-border: rgba(234, 179, 8, 0.15);
-
-  /* Colors — Status */
-  --color-status-success: #10B981;
-  --color-status-warning: #F97316;
-  --color-status-error: #EF4444;
-
-  /* Colors — Border */
-  --color-border: #1E1E2E;
-  --color-border-subtle: rgba(30, 30, 46, 0.6);
-  --color-border-strong: rgba(30, 30, 46, 0.8);
-
   /* Fonts */
-  --font-display: var(--font-syne);
-  --font-body: var(--font-inter);
-  --font-mono: var(--font-jetbrains);
+  --font-display: var(--font-syne), system-ui, sans-serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
 
-  /* Font Sizes */
+  /* Font sizes */
   --font-size-section-title: clamp(1.75rem, 3.5vw, 2.75rem);
   --font-size-label: 0.8rem;
   --font-size-tag: 0.78rem;
@@ -45,12 +16,110 @@
   --font-size-tiny: 0.68rem;
   --font-size-card-title: 1.6rem;
 
+  /* ─── LIGHT THEME (default) ─── */
+
+  /* Surfaces */
+  --color-surface: #ffffff;
+  --color-surface-alt: #f8f9fa;
+  --color-surface-card: #ffffff;
+  --color-surface-elevated: #f1f3f5;
+
+  /* Content */
+  --color-content: #1a1a2e;
+  --color-content-secondary: #4a5568;
+  --color-content-muted: #718096;
+  --color-content-faint: #cbd5e0;
+
+  /* Accent — yellow stays for non-text; darker amber for text */
+  --color-accent: #b45309;
+  --color-accent-bright: #eab308;
+  --color-accent-glow: rgba(234, 179, 8, 0.15);
+  --color-accent-dim: rgba(234, 179, 8, 0.08);
+  --color-accent-border: rgba(234, 179, 8, 0.25);
+
+  /* Status */
+  --color-status-success: #059669;
+  --color-status-warning: #d97706;
+  --color-status-error: #dc2626;
+
+  /* Borders */
+  --color-border: #e2e8f0;
+  --color-border-subtle: rgba(226, 232, 240, 0.6);
+  --color-border-strong: #cbd5e0;
+
   /* Shadows */
-  --shadow-glow-accent: 0 0 20px rgba(234, 179, 8, 0.35), 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-glow-accent-lg: 0 0 24px rgba(234, 179, 8, 0.5), 0 4px 16px rgba(0, 0, 0, 0.3);
-  --shadow-glow-warning: 0 0 30px rgba(249, 115, 22, 0.06);
-  --shadow-card: 0 1px 4px rgba(0, 0, 0, 0.4);
-  --shadow-card-hover: 0 0 30px rgba(234, 179, 8, 0.12), 0 4px 16px rgba(0, 0, 0, 0.3);
+  --shadow-glow-accent:
+    0 0 16px rgba(234, 179, 8, 0.15), 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-glow-accent-lg:
+    0 0 28px rgba(234, 179, 8, 0.2), 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-glow-warning: 0 0 16px rgba(217, 119, 6, 0.15);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover:
+    0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+
+  /* Watermark */
+  --color-watermark: rgba(26, 26, 46, 0.05);
+
+  /* Sidebar */
+  --color-sidebar-bg: rgba(255, 255, 255, 0.95);
+  --color-sidebar-border: rgba(226, 232, 240, 0.8);
+  --color-sidebar-active-bg: rgba(234, 179, 8, 0.08);
+
+  /* Aurora (Hero background) */
+  --color-aurora-1: rgba(234, 179, 8, 0.08);
+  --color-aurora-2: rgba(6, 78, 130, 0.06);
+  --color-aurora-3: rgba(234, 179, 8, 0.05);
+  --color-aurora-4: rgba(20, 184, 166, 0.04);
+
+  /* Hero bottom fade */
+  --color-hero-fade: #ffffff;
+
+  /* Dot grid */
+  --color-dot-grid: #1a1a2e;
+  --opacity-dot-grid: 0.04;
+
+  /* Noise overlay */
+  --opacity-noise: 0.02;
+
+  /* Glass */
+  --color-glass-bg: rgba(255, 255, 255, 0.7);
+  --color-glass-border: rgba(226, 232, 240, 0.8);
+
+  /* CursorGlow */
+  --color-cursor-glow: rgba(234, 179, 8, 0.08);
+  --color-cursor-glow-secondary: rgba(234, 179, 8, 0.03);
+  --blend-cursor-glow: normal;
+
+  /* TiltCard */
+  --color-tiltcard-bg: #ffffff;
+  --color-tiltcard-border: rgba(226, 232, 240, 0.8);
+
+  /* Shimmer */
+  --color-shimmer: rgba(234, 179, 8, 0.06);
+
+  /* Input focus */
+  --color-input-bg: rgba(241, 243, 245, 0.6);
+  --color-input-focus-border: rgba(234, 179, 8, 0.4);
+  --color-input-focus-shadow: rgba(234, 179, 8, 0.08);
+
+  /* Section divider */
+  --color-section-divider: rgba(234, 179, 8, 0.12);
+
+  /* Skeleton */
+  --color-skeleton-1: rgba(241, 243, 245, 0.8);
+  --color-skeleton-2: rgba(241, 243, 245, 0.6);
+  --color-skeleton-3: rgba(241, 243, 245, 0.4);
+
+  /* Architecture block (Projects) */
+  --color-arch-bg: rgba(248, 249, 250, 0.8);
+
+  /* Timeline gradient */
+  --color-timeline-gradient: linear-gradient(
+    to bottom,
+    var(--color-accent-bright),
+    var(--color-accent-border),
+    transparent
+  );
 
   /* Animations */
   --animate-aurora-1: aurora-1 8s ease-in-out infinite alternate;
@@ -60,124 +129,204 @@
   --animate-shimmer: shimmer 4s ease-in-out infinite;
 }
 
-/* ─────────────────────────────────────────────
-   Keyframes
-   ───────────────────────────────────────────── */
+/* ─── DARK THEME OVERRIDES ─── */
+
+[data-theme="dark"] {
+  /* Surfaces */
+  --color-surface: #0a0a0f;
+  --color-surface-alt: #111116;
+  --color-surface-card: #16161e;
+  --color-surface-elevated: #1e1e2e;
+
+  /* Content */
+  --color-content: #f8f8ff;
+  --color-content-secondary: #94a3b8;
+  --color-content-muted: #64748b;
+  --color-content-faint: #334155;
+
+  /* Accent — yellow works great on dark */
+  --color-accent: #eab308;
+  --color-accent-bright: #eab308;
+  --color-accent-glow: rgba(234, 179, 8, 0.25);
+  --color-accent-dim: rgba(234, 179, 8, 0.06);
+  --color-accent-border: rgba(234, 179, 8, 0.15);
+
+  /* Status */
+  --color-status-success: #10b981;
+  --color-status-warning: #f97316;
+  --color-status-error: #ef4444;
+
+  /* Borders */
+  --color-border: #1e1e2e;
+  --color-border-subtle: rgba(30, 30, 46, 0.6);
+  --color-border-strong: #2d2d3f;
+
+  /* Shadows */
+  --shadow-glow-accent:
+    0 0 16px rgba(234, 179, 8, 0.2), 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-glow-accent-lg:
+    0 0 28px rgba(234, 179, 8, 0.3), 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-glow-warning: 0 0 16px rgba(249, 115, 22, 0.2);
+  --shadow-card: 0 1px 4px rgba(0, 0, 0, 0.4);
+  --shadow-card-hover:
+    0 0 30px rgba(234, 179, 8, 0.08), 0 4px 16px rgba(0, 0, 0, 0.4);
+
+  /* Watermark */
+  --color-watermark: rgba(234, 179, 8, 0.06);
+
+  /* Sidebar */
+  --color-sidebar-bg: rgba(10, 10, 15, 0.92);
+  --color-sidebar-border: rgba(30, 30, 46, 0.6);
+  --color-sidebar-active-bg: rgba(234, 179, 8, 0.08);
+
+  /* Aurora */
+  --color-aurora-1: rgba(234, 179, 8, 0.12);
+  --color-aurora-2: rgba(6, 78, 130, 0.15);
+  --color-aurora-3: rgba(234, 179, 8, 0.08);
+  --color-aurora-4: rgba(20, 184, 166, 0.06);
+
+  /* Hero bottom fade */
+  --color-hero-fade: #0a0a0f;
+
+  /* Dot grid */
+  --color-dot-grid: #f8f8ff;
+  --opacity-dot-grid: 0.025;
+
+  /* Noise overlay */
+  --opacity-noise: 0.035;
+
+  /* Glass */
+  --color-glass-bg: rgba(22, 22, 30, 0.5);
+  --color-glass-border: rgba(30, 30, 46, 0.6);
+
+  /* CursorGlow */
+  --color-cursor-glow: rgba(234, 179, 8, 0.1);
+  --color-cursor-glow-secondary: rgba(234, 179, 8, 0.04);
+  --blend-cursor-glow: screen;
+
+  /* TiltCard */
+  --color-tiltcard-bg: #111116;
+  --color-tiltcard-border: rgba(30, 30, 46, 0.6);
+
+  /* Shimmer */
+  --color-shimmer: rgba(234, 179, 8, 0.04);
+
+  /* Input focus */
+  --color-input-bg: rgba(22, 22, 30, 0.6);
+  --color-input-focus-border: rgba(234, 179, 8, 0.4);
+  --color-input-focus-shadow: rgba(234, 179, 8, 0.1);
+
+  /* Section divider */
+  --color-section-divider: rgba(234, 179, 8, 0.1);
+
+  /* Skeleton */
+  --color-skeleton-1: rgba(30, 30, 46, 0.8);
+  --color-skeleton-2: rgba(30, 30, 46, 0.6);
+  --color-skeleton-3: rgba(30, 30, 46, 0.4);
+
+  /* Architecture block */
+  --color-arch-bg: rgba(10, 10, 15, 0.8);
+
+  /* Timeline gradient */
+  --color-timeline-gradient: linear-gradient(
+    to bottom,
+    var(--color-accent-bright),
+    var(--color-accent-border),
+    transparent
+  );
+}
+
+/* ─── Keyframes ─── */
+
 @keyframes aurora-1 {
   0% {
     opacity: 1;
     transform: scale(1) translateX(0);
   }
-
   100% {
     opacity: 0.7;
     transform: scale(1.1) translateX(20px);
   }
 }
-
 @keyframes aurora-2 {
   0% {
     opacity: 0.8;
     transform: scale(1) translateY(0);
   }
-
   100% {
     opacity: 1;
     transform: scale(1.15) translateY(-15px);
   }
 }
-
 @keyframes aurora-3 {
   0% {
     opacity: 0.6;
     transform: scale(1);
   }
-
   100% {
     opacity: 1;
     transform: scale(1.08);
   }
 }
-
 @keyframes blink {
   50% {
     opacity: 0;
   }
 }
-
 @keyframes shimmer {
   0% {
     transform: translateX(-200%);
   }
-
   100% {
     transform: translateX(200%);
   }
 }
 
-/* ─────────────────────────────────────────────
-   Base Styles
-   ───────────────────────────────────────────── */
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+/* ─── Base Styles ─── */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   background: var(--color-surface);
   color: var(--color-content);
-  font-family: var(--font-body);
-  overflow-x: hidden;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 ::selection {
-  background: rgba(234, 179, 8, 0.25);
-  color: #F8F8FF;
+  background: var(--color-accent-bright);
+  color: var(--color-surface);
 }
 
-/* ─────────────────────────────────────────────
-   Scrollbar
-   ───────────────────────────────────────────── */
-::-webkit-scrollbar {
-  width: 6px;
-}
+/* ─── Reusable CSS Classes ─── */
 
-::-webkit-scrollbar-track {
-  background: #0A0A0F;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.25);
-}
-
-/* ─────────────────────────────────────────────
-   Reusable Utility Classes
-   Used across 5+ sections — DRY
-   ───────────────────────────────────────────── */
 .noise-overlay::after {
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  opacity: 0.025;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
-  background-repeat: repeat;
+  opacity: var(--opacity-noise);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
 }
 
 .dot-grid::before {
   content: "";
   position: absolute;
   inset: 0;
-  pointer-events: none;
-  opacity: 0.02;
-  background-image: radial-gradient(circle, #F8F8FF 1px, transparent 1px);
+  opacity: var(--opacity-dot-grid);
+  background-image: radial-gradient(
+    circle,
+    var(--color-dot-grid) 1px,
+    transparent 1px
+  );
   background-size: 32px 32px;
+  pointer-events: none;
 }
 
 .section-divider::before {
@@ -187,12 +336,16 @@ body {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(234, 179, 8, 0.1), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-section-divider),
+    transparent
+  );
 }
 
 .glass {
-  background: rgba(22, 22, 30, 0.5);
+  background: var(--color-glass-bg);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(30, 30, 46, 0.6);
+  border: 1px solid var(--color-glass-border);
 }

@@ -1,4 +1,5 @@
 "use client";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 // Fixed left nav (desktop) + floating pill nav (mobile) with scroll-aware highlighting
 
@@ -154,6 +155,7 @@ export function Sidebar() {
                 />
               </a>
             ))}
+            <ThemeToggle />
           </div>
 
           {/* Resume Button */}
@@ -242,6 +244,7 @@ export function Sidebar() {
                   <Icon size={20} strokeWidth={1.5} />
                 </a>
               ))}
+              <ThemeToggle />
             </div>
           </motion.div>
         )}
