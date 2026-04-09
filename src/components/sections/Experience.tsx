@@ -51,7 +51,7 @@ export function Experience() {
             transition={{ duration: 1.5, delay: 0.3 }}
             style={{
               background:
-                "linear-gradient(to bottom, var(--color-accent), var(--color-accent-border), transparent)",
+                "linear-gradient(to bottom, var(--color-accent-fill), var(--color-accent-border), transparent)",
               transformOrigin: "top",
             }}
           />
@@ -67,8 +67,8 @@ export function Experience() {
                 className="relative pl-14 lg:pl-24"
               >
                 {/* Timeline dot */}
-                <div className="absolute left-3 lg:left-6 top-3 w-5 h-5 rounded-full bg-accent flex items-center justify-center shadow-glow-accent">
-                  <Briefcase size={9} className="text-surface" />
+                <div className="absolute left-3 lg:left-6 top-3 w-5 h-5 rounded-full bg-accent-fill flex items-center justify-center shadow-glow-accent">
+                  <Briefcase size={9} className="text-accent-contrast" />
                 </div>
 
                 {/* Connector line */}

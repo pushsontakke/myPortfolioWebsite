@@ -23,7 +23,7 @@ const colorMap = {
     border: "border-status-warning/25",
   },
   accent: {
-    dot: "bg-accent",
+    dot: "bg-accent-fill",
     text: "text-accent",
     bg: "bg-accent-dim",
     border: "border-accent-border",

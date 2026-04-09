@@ -53,7 +53,7 @@ export function Skills() {
           <div className="inline-flex items-center gap-3 px-4 py-2.5 rounded-xl glass">
             <div className="flex gap-1.5">
               <span className="w-2.5 h-2.5 rounded-full bg-status-error" />
-              <span className="w-2.5 h-2.5 rounded-full bg-accent" />
+              <span className="w-2.5 h-2.5 rounded-full bg-accent-fill" />
               <span className="w-2.5 h-2.5 rounded-full bg-status-success" />
             </div>
             <span className="font-mono text-[0.82rem] text-accent">

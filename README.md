@@ -186,6 +186,14 @@ No component changes needed for content updates.
 
 ---
 
+## Recent Updates
+
+- Added a reusable light/dark theme toggle while keeping light mode as the default.
+- Persisted theme preference in `localStorage` using the `portfolio-theme` key.
+- Improved dark-theme watermark visibility so background section text is easier to notice on normal displays.
+
+---
+
 ## Future Improvements
 
 - [ ] Form backend integration (Formspree or Next.js Server Action)
