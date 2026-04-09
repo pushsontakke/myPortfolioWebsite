@@ -30,6 +30,7 @@ export function Education() {
           <SectionHeader
             tag="// education & certifications"
             title="Credentials"
+            watermark="Edu."
           />
         </motion.div>
 

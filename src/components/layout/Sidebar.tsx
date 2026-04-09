@@ -2,7 +2,7 @@
 
 // Fixed left nav (desktop) + floating pill nav (mobile) with scroll-aware highlighting
 
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Github, Linkedin, Mail, Menu, X, Download } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
@@ -18,6 +18,21 @@ const socialLinks = [
 export function Sidebar() {
   const [active, setActive] = useState("hero");
   const [mobileOpen, setMobileOpen] = useState(false);
+  const activeRef = useRef(active);
+
+  useEffect(() => {
+    activeRef.current = active;
+  }, [active]);
+
+  const updateActiveSection = (id: string) => {
+    if (!id || id === activeRef.current) {
+      return;
+    }
+
+    activeRef.current = id;
+    setActive(id);
+    window.history.replaceState(null, "", `#${id}`);
+  };
 
   // Scroll to section from URL hash on page load
   useEffect(() => {
@@ -30,32 +45,65 @@ export function Sidebar() {
   }, []);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id);
-            // Update URL hash when section becomes active
-            if (entry.target.id) {
-              window.history.replaceState(null, "", `#${entry.target.id}`);
-            }
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: "-10% 0px -70% 0px" }
+    const sections = NAV_ITEMS.map(({ id }) => document.getElementById(id)).filter(
+      (section): section is HTMLElement => Boolean(section)
     );
 
-    NAV_ITEMS.forEach(({ id }) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
+    if (sections.length === 0) {
+      return;
+    }
 
-    return () => observer.disconnect();
+    let rafId = 0;
+
+    const calculateActiveSection = () => {
+      rafId = 0;
+
+      const scrollAnchor = window.scrollY + 160;
+      const pageBottom = window.innerHeight + window.scrollY;
+      const documentHeight = document.documentElement.scrollHeight;
+
+      let nextActive = sections[0].id;
+
+      for (const section of sections) {
+        if (section.offsetTop <= scrollAnchor) {
+          nextActive = section.id;
+          continue;
+        }
+
+        break;
+      }
+
+      if (pageBottom >= documentHeight - 2) {
+        nextActive = sections[sections.length - 1].id;
+      }
+
+      updateActiveSection(nextActive);
+    };
+
+    const requestSectionUpdate = () => {
+      if (rafId !== 0) {
+        return;
+      }
+
+      rafId = window.requestAnimationFrame(calculateActiveSection);
+    };
+
+    requestSectionUpdate();
+    window.addEventListener("scroll", requestSectionUpdate, { passive: true });
+    window.addEventListener("resize", requestSectionUpdate);
+
+    return () => {
+      if (rafId !== 0) {
+        window.cancelAnimationFrame(rafId);
+      }
+      window.removeEventListener("scroll", requestSectionUpdate);
+      window.removeEventListener("resize", requestSectionUpdate);
+    };
   }, []);
 
   const scrollTo = (id: string) => {
+    updateActiveSection(id);
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    window.history.replaceState(null, "", `#${id}`);
     setMobileOpen(false);
   };
 

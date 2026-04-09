@@ -151,7 +151,7 @@ export function Services() {
           <SectionHeader
             tag="// services"
             title="I help early-stage startups go from idea to live, scalable product — without hiring a full engineering team."
-            watermark="Services"
+            watermark="SerV's"
           />
           <p className="mt-3 text-accent font-display text-[1.05rem] font-semibold tracking-wide">
             Founding-Engineer-as-a-Service

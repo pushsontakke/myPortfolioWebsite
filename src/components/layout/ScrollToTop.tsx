@@ -8,9 +8,33 @@ export function ScrollToTop() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setVisible(window.scrollY > 600);
+    let rafId = 0;
+
+    const updateVisibility = () => {
+      rafId = 0;
+      const shouldBeVisible = window.scrollY > 600;
+      setVisible((current) =>
+        current === shouldBeVisible ? current : shouldBeVisible
+      );
+    };
+
+    const handleScroll = () => {
+      if (rafId !== 0) {
+        return;
+      }
+
+      rafId = window.requestAnimationFrame(updateVisibility);
+    };
+
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    return () => {
+      if (rafId !== 0) {
+        window.cancelAnimationFrame(rafId);
+      }
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
