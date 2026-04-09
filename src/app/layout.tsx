@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Syne, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { themeInitializationScript } from "@/lib/theme";
 
 const syneFont = Syne({
   variable: "--font-syne",
@@ -30,9 +31,18 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
+      data-theme="light"
+      data-scroll-behavior="smooth"
       className={`${syneFont.variable} ${interFont.variable} ${jetBrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <script
+          id="theme-initializer"
+          dangerouslySetInnerHTML={{ __html: themeInitializationScript }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

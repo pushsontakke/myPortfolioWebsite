@@ -23,8 +23,9 @@ export function SectionHeader({
           className="absolute -top-8 left-0 pointer-events-none select-none font-display font-extrabold leading-none tracking-tighter"
           style={{
             fontSize: "clamp(5rem, 14vw, 13rem)",
-            color: "var(--color-accent)",
-            opacity: 0.03,
+            color: "var(--color-watermark)",
+            WebkitTextStroke: "1px var(--color-watermark-stroke)",
+            textShadow: "0 10px 24px var(--color-watermark-shadow)",
           }}
         >
           {watermark}
