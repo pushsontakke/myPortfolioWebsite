@@ -24,7 +24,8 @@ export function SectionHeader({
           style={{
             fontSize: "clamp(5rem, 14vw, 13rem)",
             color: "var(--color-watermark)",
-            opacity: 0.03,
+            WebkitTextStroke: "1px var(--color-watermark-stroke)",
+            textShadow: "0 10px 24px var(--color-watermark-shadow)",
           }}
         >
           {watermark}

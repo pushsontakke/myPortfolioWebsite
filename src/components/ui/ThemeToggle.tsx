@@ -1,40 +1,72 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useTheme } from "next-themes";
-import { Sun, Moon } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
+import { useSyncExternalStore } from "react";
+import {
+  DEFAULT_THEME,
+  applyTheme,
+  getActiveTheme,
+  notifyThemeChange,
+  persistTheme,
+  subscribeToThemeChange,
+  type Theme,
+} from "@/lib/theme";
+import { cn } from "@/lib/utils";
 
-export function ThemeToggle() {
-    const [mounted, setMounted] = useState(false);
-    const { resolvedTheme, setTheme } = useTheme();
-    // TODO: fix this warning or error. check for suitable solution.
-    useEffect(() => setMounted(true), []);
+interface ThemeToggleProps {
+  compact?: boolean;
+  className?: string;
+}
 
-    if (!mounted) {
-        // Render placeholder to avoid hydration mismatch
-        return (
-            <div className="w-8 h-8 rounded-lg bg-surface-elevated/50" />
-        );
-    }
+export function ThemeToggle({
+  compact = false,
+  className,
+}: ThemeToggleProps) {
+  const theme = useSyncExternalStore<Theme>(
+    subscribeToThemeChange,
+    getActiveTheme,
+    () => DEFAULT_THEME
+  );
 
-    const isDark = resolvedTheme === "dark";
+  const nextTheme = theme === "light" ? "dark" : "light";
+  const themeLabel = theme === "light" ? "Light mode" : "Dark mode";
+  const ActionIcon = theme === "light" ? Moon : Sun;
 
-    return (
-        <button
-            onClick={() => setTheme(isDark ? "light" : "dark")}
-            className="p-2 rounded-lg cursor-pointer transition-all duration-300 hover:scale-110 hover:-translate-y-0.5 border border-border-subtle"
-            style={{
-                background: isDark
-                    ? "var(--color-surface-card)"
-                    : "var(--color-surface-elevated)",
-            }}
-            aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
-        >
-            {isDark ? (
-                <Sun size={16} strokeWidth={1.5} className="text-accent" />
-            ) : (
-                <Moon size={16} strokeWidth={1.5} className="text-accent" />
-            )}
-        </button>
-    );
+  const handleToggle = () => {
+    applyTheme(nextTheme);
+    persistTheme(nextTheme);
+    notifyThemeChange();
+  };
+
+  return (
+    <button
+      type="button"
+      onClick={handleToggle}
+      aria-label={`Switch to ${nextTheme} theme`}
+      aria-pressed={theme === "dark"}
+      title={`Switch to ${nextTheme} theme`}
+      className={cn(
+        "group inline-flex items-center border border-border-subtle bg-surface-card/80 text-content shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:border-accent-border hover:text-accent",
+        compact
+          ? "h-10 w-10 justify-center rounded-full"
+          : "gap-3 rounded-2xl px-3 py-2.5",
+        className
+      )}
+    >
+      <span className="flex h-8 w-8 items-center justify-center rounded-full bg-accent-dim text-accent transition-transform duration-300 group-hover:scale-105">
+        <ActionIcon size={16} strokeWidth={1.8} />
+      </span>
+
+      {!compact && (
+        <span className="flex flex-col text-left leading-none">
+          <span className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-content-faint">
+            Theme
+          </span>
+          <span className="mt-1 text-[0.78rem] font-semibold text-content">
+            {themeLabel}
+          </span>
+        </span>
+      )}
+    </button>
+  );
 }

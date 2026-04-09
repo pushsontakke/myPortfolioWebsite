@@ -1,45 +1,47 @@
 import type { Metadata } from "next";
 import { Syne, Inter, JetBrains_Mono } from "next/font/google";
-import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import "./globals.css";
+import { themeInitializationScript } from "@/lib/theme";
 
-const syne = Syne({
-  subsets: ["latin"],
+const syneFont = Syne({
   variable: "--font-syne",
-  display: "swap",
+  subsets: ["latin"],
 });
 
-const inter = Inter({
-  subsets: ["latin"],
+const interFont = Inter({
   variable: "--font-inter",
-  display: "swap",
+  subsets: ["latin"],
 });
 
-const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
+const jetBrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains",
-  display: "swap",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: "Portfolio | Piyush Sontakke",
-  description:
-    "Product Engineer who ships — not just codes. Full-Stack · Django Rest Framework · React · GenAI",
+  description: "Product Engineer who ships — not just codes.",
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${syne.variable} ${inter.variable} ${jetbrains.variable}`}
+      data-theme="light"
+      data-scroll-behavior="smooth"
+      className={`${syneFont.variable} ${interFont.variable} ${jetBrainsMono.variable} h-full antialiased`}
     >
-      <body className="font-body antialiased">
-        <ThemeProvider>{children}</ThemeProvider>
+      <body className="min-h-full flex flex-col">
+        <script
+          id="theme-initializer"
+          dangerouslySetInnerHTML={{ __html: themeInitializationScript }}
+        />
+        {children}
       </body>
     </html>
   );

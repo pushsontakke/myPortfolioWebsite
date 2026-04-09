@@ -100,7 +100,7 @@ export function Projects() {
                     <div className="p-4 rounded-xl bg-surface/80 border border-border-subtle mb-6">
                       <div className="flex items-center gap-1.5 mb-3">
                         <span className="w-2.5 h-2.5 rounded-full bg-status-error" />
-                        <span className="w-2.5 h-2.5 rounded-full bg-accent" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-accent-fill" />
                         <span className="w-2.5 h-2.5 rounded-full bg-status-success" />
                         <span className="ml-2 font-mono text-[0.6rem] text-content-faint">
                           architecture.md
@@ -201,7 +201,7 @@ export function Projects() {
                       />
                     </a>
                   ) : (
-                    <button className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent text-surface text-[0.82rem] font-semibold shadow-glow-accent transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5 cursor-pointer group">
+                    <button className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent-fill text-accent-contrast text-[0.82rem] font-semibold shadow-glow-accent transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5 cursor-pointer group">
                       {project.cta.label}
                       <ArrowRight
                         size={14}
