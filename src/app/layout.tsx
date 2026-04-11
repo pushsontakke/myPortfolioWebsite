@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Syne, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { themeInitializationScript } from "@/lib/theme";
+// import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const syneFont = Syne({
   variable: "--font-syne",
@@ -36,6 +37,7 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       className={`${syneFont.variable} ${interFont.variable} ${jetBrainsMono.variable} h-full antialiased`}
     >
+      {/* <SpeedInsights/> */}
       <body className="min-h-full flex flex-col">
         <script
           id="theme-initializer"
