@@ -11,7 +11,7 @@ import { NAV_ITEMS, SITE } from "@/lib/constants";
 const socialLinks = [
   { icon: Github, href: SITE.socials.github },
   { icon: Linkedin, href: SITE.socials.linkedin },
-  { icon: X, href: `mailto:${SITE.socials.twitter}` },
+  { icon: X, href: SITE.socials.twitter },
   { icon: Mail, href: `mailto:${SITE.email}` },
 ];
 
