@@ -201,7 +201,7 @@ export function Contact() {
                         <div className="mt-5 flex items-center gap-2 text-label text-content-muted">
                             <Mail size={14} strokeWidth={1.5} />
                             {/* <span>Or email directly: </span> */}
-                            <span>send an email: </span>
+                            <span>email: </span>
                             <a
                                 href={`mailto:${SITE.email}`}
                                 className="text-accent transition-colors duration-200 hover:underline"
