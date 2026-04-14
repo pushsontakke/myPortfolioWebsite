@@ -193,8 +193,8 @@ export function Hero() {
                 href={SITE.resume}
                 className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-accent-fill text-accent-contrast font-semibold shadow-glow-accent-lg transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5 cursor-pointer text-[0.9rem]"
               >
-                <Download size={16} strokeWidth={1.5} />
-                Download Resume
+                {/* <Download size={16} strokeWidth={1.5} /> */}
+                Resume
               </a>
               <a
                 href="#contact"
