@@ -48,8 +48,8 @@ export const NAV_ITEMS = [
   { id: "skills", label: "Skills", num: "03" },
   { id: "experience", label: "Experience", num: "04" },
   { id: "projects", label: "Projects", num: "05" },
-  { id: "services", label: "Services", num: "06" },
-  { id: "testimonials", label: "Testimonials", num: "07" },
+  // { id: "services", label: "Services", num: "06" },
+  // { id: "testimonials", label: "Testimonials", num: "07" },
   { id: "education", label: "Education", num: "08" },
   { id: "contact", label: "Contact", num: "09" },
 ] as const;
@@ -369,7 +369,7 @@ export const CONTACT_SERVICES = "MVPs · AI Features · Full-Stack SaaS";
 export const CONTACT_STATS = [
   { value: "2.5+", label: "Years" },
   { value: "2", label: "Companies" },
-  { value: "1", label: "Product Built" },
+  { value: "2", label: "Product Built" },
 ] as const;
 
 // ── Footer ──
