@@ -387,7 +387,10 @@ export const CONTACT_STATS = [
 
 export const FOOTER_LINKS = [
   { label: "About", href: "#about" },
+  { label: "Skills", href: "#Skills" },
+  { label: "Experience", href: "#Experience" },
+  // { label: "Services", href: "#services" },
   { label: "Projects", href: "#projects" },
-  { label: "Services", href: "#services" },
+  { label: "Education", href: "#Education" },
   { label: "Contact", href: "#contact" },
 ] as const;
