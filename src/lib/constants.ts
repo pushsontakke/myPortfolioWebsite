@@ -37,6 +37,17 @@ export const SITE = {
     linkedin: "https://linkedin.com/in/piyush-sontakke",
     twitter: "https://x.com/PiyushSontakke4",
   },
+  business: {
+    name: "ElixirFlow",
+    url: "https://elixirflow.in",
+    heroEyebrow: "Founder-led business",
+    heroDescription:
+      "See the business website behind my product engineering and delivery work.",
+    heroCta: "Visit ElixirFlow",
+    servicesDescription:
+      "ElixirFlow is the business layer behind this founder-style product engineering offer.",
+    servicesCta: "Explore business website",
+  },
   resume: "/Piyush_Sontakke_Resume.pdf",
 } as const;
 
@@ -376,7 +387,8 @@ export const CONTACT_STATS = [
 
 export const FOOTER_LINKS = [
   { label: "About", href: "#about" },
+  { label: "Skills", href: "#Skills" },
+  // { label: "Services", href: "#services" },
   { label: "Projects", href: "#projects" },
-  { label: "Services", href: "#services" },
   { label: "Contact", href: "#contact" },
 ] as const;
