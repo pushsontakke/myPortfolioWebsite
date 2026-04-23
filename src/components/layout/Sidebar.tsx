@@ -4,7 +4,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Github, Linkedin, Mail, Menu, X, Download } from "lucide-react";
+import { Github, Linkedin, Mail, Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { NAV_ITEMS, SITE } from "@/lib/constants";
 
@@ -206,15 +206,6 @@ export function Sidebar() {
               </a>
             ))}
           </div>
-
-          {/* Resume Button */}
-          <button
-            onClick={() => scrollTo("contact")}
-            className="mx-3 px-3 py-2.5 rounded-full bg-accent-fill text-accent-contrast text-[0.75rem] font-semibold shadow-glow-accent transition-all duration-300 cursor-pointer hover:scale-[1.03] hover:-translate-y-0.5 flex items-center justify-center gap-1.5"
-          >
-            <Download size={12} strokeWidth={1.5} />
-            Resume
-          </button>
         </div>
       </nav>
 
