@@ -45,7 +45,7 @@ export function ScrollToTop() {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8, y: 10 }}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-6 right-6 z-50 p-3 rounded-full cursor-pointer text-accent bg-surface-card/80 border border-accent-border backdrop-blur-xl shadow-glow-accent transition-all duration-300 hover:scale-110 hover:-translate-y-0.5"
+          className="fixed bottom-6 right-6 z-50 p-3 rounded-full cursor-pointer text-accent bg-surface-card/90 border border-accent-border lg:backdrop-blur-xl shadow-glow-accent transition-all duration-300 hover:scale-110 hover:-translate-y-0.5"
         >
           <ArrowUp size={18} strokeWidth={1.5} />
         </motion.button>

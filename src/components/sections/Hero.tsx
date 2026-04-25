@@ -31,6 +31,14 @@ export function Hero() {
 
   // Rotate roles every 3 seconds
   useEffect(() => {
+    const mediaQuery = window.matchMedia(
+      "(min-width: 1024px) and (prefers-reduced-motion: no-preference)"
+    );
+
+    if (!mediaQuery.matches) {
+      return;
+    }
+
     const timer = setInterval(
       () => setRoleIndex((i) => (i + 1) % HERO_ROLES.length),
       3000
@@ -43,28 +51,28 @@ export function Hero() {
       {/* ── Aurora Background ── */}
       <div className="absolute inset-0 z-0">
         <div
-          className="absolute inset-0 animate-aurora-1"
+          className="hero-aurora absolute inset-0 animate-aurora-1"
           style={{
             background:
               "radial-gradient(ellipse 90% 70% at 15% 50%, var(--hero-aurora-1) 0%, transparent 55%)",
           }}
         />
         <div
-          className="absolute inset-0 animate-aurora-2"
+          className="hero-aurora absolute inset-0 animate-aurora-2"
           style={{
             background:
               "radial-gradient(ellipse 70% 80% at 85% 25%, var(--hero-aurora-2) 0%, transparent 55%)",
           }}
         />
         <div
-          className="absolute inset-0 animate-aurora-3"
+          className="hero-aurora hero-aurora-extra absolute inset-0 animate-aurora-3"
           style={{
             background:
               "radial-gradient(ellipse 60% 50% at 50% 85%, var(--hero-aurora-3) 0%, transparent 55%)",
           }}
         />
         <div
-          className="absolute inset-0 animate-aurora-1"
+          className="hero-aurora hero-aurora-extra absolute inset-0 animate-aurora-1"
           style={{
             background:
               "radial-gradient(ellipse 40% 40% at 70% 60%, var(--hero-aurora-4) 0%, transparent 55%)",
@@ -110,11 +118,9 @@ export function Hero() {
               className="mb-3"
             >
               <h1
-                className="font-display font-extrabold text-content"
+                className="font-display font-extrabold text-content text-[2.65rem] sm:text-[3rem] lg:text-[5rem]"
                 style={{
-                  fontSize: "clamp(3rem, 6vw, 5rem)",
                   lineHeight: 1.0,
-                  letterSpacing: "-0.02em",
                 }}
               >
                 Piyush
@@ -185,7 +191,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.9 }}
-              className="mb-8 text-content-secondary text-[0.95rem] tracking-wide"
+              className="mb-8 max-w-full text-content-secondary text-[0.95rem] tracking-wide"
             >
               {HERO_SUBTITLE}
             </motion.p>
@@ -249,15 +255,16 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.9, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.7 }}
+            className="w-full"
           >
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid w-full grid-cols-2 gap-3 sm:gap-4">
               {HERO_METRICS.map((metric, i) => (
                 <motion.div
                   key={metric.label}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.9 + i * 0.1 }}
-                  className="group p-5 rounded-2xl glass transition-all duration-300 hover:-translate-y-1"
+                  className="group min-w-0 rounded-2xl glass p-4 transition-all duration-300 hover:-translate-y-1 sm:p-5"
                 >
                   <div
                     className="font-display font-bold text-accent tracking-tight"
@@ -277,7 +284,7 @@ export function Hero() {
                 href={SITE.business.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group col-span-2 rounded-2xl glass p-5 transition-all duration-300 hover:-translate-y-1"
+                className="group col-span-2 min-w-0 rounded-2xl glass p-4 transition-all duration-300 hover:-translate-y-1 sm:p-5"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="min-w-0">

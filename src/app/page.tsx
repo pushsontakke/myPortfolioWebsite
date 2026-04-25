@@ -18,12 +18,12 @@ import { Footer } from "@/components/layout/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen relative noise-overlay">
+    <div className="min-h-screen relative overflow-x-hidden noise-overlay">
       <CursorGlow />
       <Sidebar />
       <ScrollToTop />
 
-      <main className="relative z-[2] lg:ml-[220px]">
+      <main className="relative z-[2] overflow-x-hidden lg:ml-[220px]">
         <Hero />
         <About />
         <Skills />
