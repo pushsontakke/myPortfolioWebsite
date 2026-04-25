@@ -45,6 +45,12 @@ export function Sidebar() {
   }, []);
 
   useEffect(() => {
+    const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+
+    if (!isDesktop && !mobileOpen) {
+      return;
+    }
+
     const sections = NAV_ITEMS.map(({ id }) => document.getElementById(id)).filter(
       (section): section is HTMLElement => Boolean(section)
     );
@@ -99,7 +105,7 @@ export function Sidebar() {
       window.removeEventListener("scroll", requestSectionUpdate);
       window.removeEventListener("resize", requestSectionUpdate);
     };
-  }, []);
+  }, [mobileOpen]);
 
   const scrollTo = (id: string) => {
     updateActiveSection(id);
@@ -210,7 +216,7 @@ export function Sidebar() {
       </nav>
 
       {/* ── Mobile Nav Bar ── */}
-      <nav className="lg:hidden fixed top-4 left-4 right-4 z-50 rounded-2xl px-5 py-3.5 flex items-center justify-between bg-surface/[0.92] backdrop-blur-xl border border-border-subtle shadow-[0_20px_45px_rgba(74,54,21,0.12)]">
+      <nav className="lg:hidden fixed top-4 left-4 right-4 z-50 rounded-2xl px-5 py-3.5 flex items-center justify-between bg-surface/[0.96] border border-border-subtle shadow-[0_20px_45px_rgba(74,54,21,0.12)]">
         <span className="font-display text-xl font-extrabold text-content">
           PS<span className="text-accent">.</span>
         </span>
@@ -242,7 +248,7 @@ export function Sidebar() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
             id="mobile-navigation"
-            className="lg:hidden fixed inset-0 z-40 flex flex-col items-center justify-center gap-2 bg-surface/[0.98] backdrop-blur-xl"
+            className="lg:hidden fixed inset-0 z-40 flex flex-col items-center justify-center gap-2 bg-surface/[0.98]"
           >
             {NAV_ITEMS.map(({ id, label, num }, i) => (
               <motion.button

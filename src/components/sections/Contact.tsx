@@ -18,7 +18,7 @@ export function Contact() {
     <section
       id="contact"
       ref={ref}
-      className="relative py-24 lg:py-36 bg-surface section-divider dot-grid"
+      className="relative py-24 lg:py-36 overflow-hidden bg-surface section-divider dot-grid"
     >
       <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12">
         {/* Section header */}
