@@ -8,6 +8,8 @@
   button in the desktop and mobile Sidebar.
 - Kept Testimonials code intact while commenting out its import, render call,
   and navigation entry.
+- Kept the original dark palette as the default while wiring the existing theme
+  button to a light palette through shared CSS tokens.
 - Added ElixirFlow above ended Hushbox experience and added DocChase and
   AgentAudit project cards.
 - Updated titles, dates, counters, copy hygiene, brand spelling, and hero

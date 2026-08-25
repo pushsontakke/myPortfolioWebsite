@@ -1,5 +1,5 @@
 export const THEME_STORAGE_KEY = "portfolio-theme";
-export const DEFAULT_THEME = "light";
+export const DEFAULT_THEME = "dark";
 export const THEMES = ["light", "dark"] as const;
 export const THEME_CHANGE_EVENT = "portfolio-theme-change";
 
