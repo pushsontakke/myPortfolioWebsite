@@ -83,7 +83,7 @@ export function About() {
             </motion.div>
           </div>
 
-          {/* ── Right Column — Paragraphs ── */}
+          {/* Right column, paragraphs */}
           <div className="flex flex-col gap-6">
             {ABOUT_PARAGRAPHS.map((text, i) => (
               <motion.p

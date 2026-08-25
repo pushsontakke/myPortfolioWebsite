@@ -94,10 +94,12 @@ export function Experience() {
                         <Calendar size={12} strokeWidth={1.5} />
                         {exp.period}
                       </span>
-                      <span className="flex items-center gap-1.5 text-tag text-content-muted">
-                        <MapPin size={12} strokeWidth={1.5} />
-                        {exp.location}
-                      </span>
+                      {exp.location && (
+                        <span className="flex items-center gap-1.5 text-tag text-content-muted">
+                          <MapPin size={12} strokeWidth={1.5} />
+                          {exp.location}
+                        </span>
+                      )}
                     </div>
                   </div>
 

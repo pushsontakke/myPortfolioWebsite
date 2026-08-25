@@ -1,35 +1,35 @@
 // Single source of truth for ALL site data. Structure it with these sections, using `as const` for type safety:
 
-// - `SITE` — name, tagline, email (`piyushsontakke2001@gmail.com`), GitHub (`piyushsontakke`), LinkedIn, resume path
-// - `NAV_ITEMS` — id, label, num for each section
-// - `HERO_ROLES` — the 4 rotating role titles
-// - `HERO_HEADLINE_WORDS` — the staggered word animation words
-// - `HERO_METRICS` — uptime, concurrent users, orders/day, API response
-// - `ABOUT_SIGNALS` — the 3 signal chips (Ships Fast, Full Ownership, Systems Thinker)
-// - `ABOUT_PARAGRAPHS` — the 3 editorial paragraphs
-// - `SKILL_GROUPS` — grouped skills with icon names, spans, learning flags, badges
-// - `EXPERIENCE` — role, company, period, achievements, tags (payment gateways: Razorpay, PhonePe, Cashfree)
-// - `PROJECTS` — Gyfton + Ticketing Platform with all metrics, stack, highlights, architecture
-// - `SERVICES` — 5 service offerings
-// - `EDUCATION` — degree (B.E. Computer Science, SPPU, 2023) + certification (IIT Mandi GenAI)
+// - `SITE`: name, tagline, email, social links, and resume path
+// - `NAV_ITEMS`: id, label, and number for each section
+// - `HERO_ROLES`: the rotating role title
+// - `HERO_HEADLINE_WORDS`: the staggered headline words
+// - `HERO_METRICS`: the headline metrics
+// - `ABOUT_SIGNALS`: the three signal chips
+// - `ABOUT_PARAGRAPHS`: the editorial paragraphs
+// - `SKILL_GROUPS`: grouped skills with icons and learning flags
+// - `EXPERIENCES`: role history and evidence
+// - `PROJECTS`: project cards and their evidence
+// - `SERVICES`: service offerings
+// - `EDUCATION`: degree and certification
 // - `CONTACT_STATS`, `FOOTER_LINKS`
 
 
 
 /* ─────────────────────────────────────────────
-   Site-wide constants — single source of truth
+   Site-wide constants, single source of truth
    ─────────────────────────────────────────────
    All text, URLs, metrics, and structured data live here.
-   Components import what they need — zero hardcoded strings in JSX.
+   Components import what they need, with no hardcoded data in JSX.
    ───────────────────────────────────────────── */
 
 // ── Personal Info ──
 
 export const SITE = {
   name: "Piyush Sontakke",
-  tagline: "Product Engineer who ships — not just codes.",
-  role: "Lead Product Engineer",
-  location: "Pune, India",
+  tagline: "Full-Stack Developer building products and sites.",
+  role: "Full-Stack Developer",
+  location: "India",
   email: "piyushsontakke28@gmail.com",
   phone: "+91 7507284768",
   socials: {
@@ -49,46 +49,45 @@ export const NAV_ITEMS = [
   { id: "experience", label: "Experience", num: "04" },
   { id: "projects", label: "Projects", num: "05" },
   { id: "services", label: "Services", num: "06" },
-  { id: "testimonials", label: "Testimonials", num: "07" },
-  { id: "education", label: "Education", num: "08" },
-  { id: "contact", label: "Contact", num: "09" },
+  // { id: "testimonials", label: "Testimonials", num: "07" },
+  { id: "education", label: "Education", num: "07" },
+  { id: "contact", label: "Contact", num: "08" },
 ] as const;
 
 // ── Hero Section ──
 
 export const HERO_ROLES = [
-  "Full-Stack Engineer",
-  "Product Thinker",
-  "Founding Engineer",
-  "Backend Specialist",
+  "Full-Stack Developer",
 ] as const;
 
 export const HERO_HEADLINE_WORDS = [
-  "Product", "Engineer", "who", "ships", "—", "not", "just", "codes",
+  "Full-Stack", "Developer", "who", "ships,", "not", "just", "codes",
 ] as const;
 
+export const HERO_HEADLINE = "Full-Stack Developer who ships, not just codes.";
+
 export const HERO_SUBTITLE =
-  "Full-Stack Product Engineer · Pune · Python · Django · React · GenAI";
+  "Full-Stack Developer · Django · React · GenAI";
 
 export const HERO_METRICS = [
-  { value: "2.5+", label: "Years Shipping" },
-  { value: "2", label: "Companies" },
-  { value: "3", label: "Payment Integrations" },
-  { value: "E2E", label: "Ownership" },
+  { value: "5", label: "Products Built" },
+  { value: "2", label: "Workplaces" },
+  { value: "Django", label: "Backend" },
+  { value: "React", label: "Frontend" },
 ] as const;
 
 // ── About Section ──
 
 export const ABOUT_SIGNALS = [
-  { icon: "Zap", label: "Ships Fast", desc: "0→1 product delivery" },
-  { icon: "Code", label: "Full Ownership", desc: "Schema design to production deployment" },
-  { icon: "Layers", label: "Systems Thinker", desc: "Backend architecture, async pipelines" },
+  { icon: "Zap", label: "Client Scoping", desc: "From scope to post-launch iteration" },
+  { icon: "Code", label: "Full Ownership", desc: "Design, build, and deployment" },
+  { icon: "Layers", label: "Product Studio", desc: "Django, React, AWS, and Nginx" },
 ] as const;
 
 export const ABOUT_PARAGRAPHS = [
-  'I think in systems, not just features. From database schema to deployment pipeline, I make architecture decisions - not just implement tasks handed to me. I\'m the engineer who asks "why are we building this?" before asking "how?"',
-  "For 2.5 years, I've built production backend systems across two companies. At Hushbox Gifting Solution, I own the full backend as Lead Product Engineer - APIs, payment integrations, async pipelines, deployment. At Techdenovo before that, I built fintech integration workflows connecting multiple payment gateways with 100% reconciliation accuracy.",
-  "Now I'm expanding into AI - completing a PG Certification in Generative AI & Multi-Agent Systems from IIT Mandi, and building with OpenAI APIs, LangChain, and RAG pipelines. Evolving from backend engineer to AI-capable product engineer.",
+  "I work across the product lifecycle: scoping with clients, design, build, deployment, and post-launch iteration.",
+  // "At Hushbox Gifting Solution Pvt. Ltd., I worked as Lead Product Engineer from Nov 2025 to Apr 2026. That role ended in Apr 2026.",
+  "At ElixirFlow, an independent product studio, I am the Founder and Full-Stack Engineer. I work as the sole engineer and build with Django and React, then deploy with AWS and Nginx.",
 ] as const;
 
 // ── Skills Section ──
@@ -181,37 +180,31 @@ export const SKILL_GROUPS: SkillGroup[] = [
 
 export const EXPERIENCES = [
   {
-    role: "Lead Product Engineer",
-    company: "Hushbox Gifting Solution Pvt. Ltd.",
-    period: "Nov 2025 – Present",
-    location: "Remote",
-    tags: ["Startup", "Full Backend Ownership", "Remote"],
+    role: "Founder & Full-Stack Engineer",
+    company: "ElixirFlow (independent product studio)",
+    period: "Apr 2026 - Present",
+    location: "Pune",
+    tags: ["Current Role", "Independent Product Studio"],
     summary:
-      "Own the full backend lifecycle — schema design, API development, payment integrations, Docker/Nginx deployment on AWS EC2, and production stability monitoring.",
+      "Work as the sole engineer: scope with clients, design and build with Django and React, deploy with AWS and Nginx, and iterate post-launch.",
     achievements: [
-      "Integrated third-party payment gateways (SabPaisa, Pinelabs) with custom AES encryption and webhook-based callback handling",
-      "Built async task pipelines using Celery and Redis for order processing and real-time balance updates",
-      "Designed scalable backend services using Django and PostgreSQL with optimized ORM queries and pagination",
-      "Implemented webhook receivers for async data fetching from payment and logistics providers with retry and error handling",
-      "Scheduled cron-based background processes to sync real-time account balances and inventory state",
-      "Owned full backend lifecycle: schema design, API development, Docker/Nginx deployment on AWS EC2",
+      "Sole engineer: scoping with clients, design, build with Django and React, deployment with AWS and Nginx, and post-launch iteration",
+      "DocChase: WhatsApp-first document-collection tool for chartered-accountancy firms; automates request, track, and escalate workflows against GST and ITR filing deadlines",
+      "DocChase stack: Django, Celery, Redis, PostgreSQL. Status: [live / beta / in development]. URL: no public URL",
+      "AgentAudit: 30-point production-readiness audit for LLM and agent systems; landing page and paid audits",
+      "AgentAudit status: [live / beta / in development]. URL: no public URL",
+      "Shipped marketing, demo, and client sites in Next.js and React",
     ],
   },
   {
-    role: "Associate Software Engineer",
-    company: "Techdenovo",
-    period: "May 2024 – Nov 2025",
-    location: "India",
-    tags: ["Fintech", "API Integrations", "Backend"],
+    role: "Lead Product Engineer",
+    company: "Hushbox Gifting Solution Pvt. Ltd.",
+    period: "Nov 2025 - Apr 2026",
+    location: undefined,
+    tags: ["Role Ended"],
     summary:
-      "Built fintech integration workflows connecting SabPaisa, PhonePe, and Pinelabs APIs with 100% reconciliation accuracy.",
-    achievements: [
-      "Developed Python-based fintech integration workflows connecting SabPaisa, PhonePe, and Pinelabs APIs",
-      "Built webhook handlers and callback processing for payment status updates with retry logic",
-      "Refactored legacy APIs using Django REST Framework — improved data consistency by 50% and response time by 15%",
-      "Built backend automation for order, transaction, and operational workflows with async job scheduling",
-      "Debugged production issues across services, improving uptime and reliability under peak traffic",
-    ],
+      "Worked as Lead Product Engineer from Nov 2025 to Apr 2026. This role ended in Apr 2026.",
+    achievements: ["Role ended in Apr 2026"],
   },
 ] as const;
 
@@ -220,7 +213,7 @@ export const EXPERIENCES = [
 export const PROJECTS = [
   {
     title: "Gyfton",
-    subtitle: "Product Gifting Platform — backend architecture & API development",
+    subtitle: "Product Gifting Platform - backend architecture and API development",
     status: "Production" as const,
     statusColor: "accent" as const,
     access: { label: "Private · Company Product", icon: "Lock" },
@@ -270,7 +263,7 @@ export const PROJECTS = [
     architecture: [
       { key: "Hybrid Locking", value: "Redis SETNX + PostgreSQL SELECT FOR UPDATE" },
       { key: "Idempotency Keys", value: "UUID on all payment ops" },
-      { key: "CAP Theorem", value: "CP — Consistency over Availability" },
+      { key: "CAP Theorem", value: "CP - Consistency over Availability" },
       { key: "Architecture", value: "SOA Monorepo" },
       { key: "Failure Handling", value: "Redis fallback → DB locks" },
       { key: "Reconciliation", value: "Celery Beat cron for orphaned locks" },
@@ -289,6 +282,33 @@ export const PROJECTS = [
     cta: { label: "View on GitHub", href: "https://github.com/pushsontakke" },
     github: "https://github.com/pushsontakke",
   },
+  {
+    title: "DocChase",
+    subtitle:
+      "WhatsApp-first document-collection tool for chartered-accountancy firms",
+    status: "[live / beta / in development]" as const,
+    statusColor: "warning" as const,
+    access: { label: "ElixirFlow product", icon: null as string | null },
+    stack: ["Django", "Celery", "Redis", "PostgreSQL"],
+    metrics: [] as { value: string; label: string }[],
+    highlights: [
+      "Automates request, track, and escalate workflows against GST and ITR filing deadlines",
+    ],
+    cta: { label: "Open DocChase", href: null as string | null },
+    github: null as string | null,
+  },
+  {
+    title: "AgentAudit",
+    subtitle: "30-point production-readiness audit for LLM and agent systems",
+    status: "[live / beta / in development]" as const,
+    statusColor: "warning" as const,
+    access: { label: "ElixirFlow product", icon: null as string | null },
+    stack: ["LLM systems", "Agent systems"],
+    metrics: [] as { value: string; label: string }[],
+    highlights: ["Landing page and paid audits"],
+    cta: { label: "Open AgentAudit", href: null as string | null },
+    github: null as string | null,
+  },
 ];
 
 // ── Services Section ──
@@ -297,33 +317,32 @@ export const SERVICES = [
   {
     icon: "Rocket",
     title: "MVP Development (0→1)",
-    desc: "Full-stack. DB design to deployed product. 4–6 weeks.",
+    desc: "Django and React product builds from design to deployment.",
     active: true,
   },
   {
     icon: "Brain",
     title: "AI Feature Integration",
-    desc: "LLM chatbots, RAG search, AI summarizers. GenAI-certified.",
+    desc: "LLM and agent system work informed by current certification study.",
     active: true,
   },
   {
     icon: "Globe",
     title: "Next.js Web Applications",
-    desc: "Fast, SEO-optimized, production-grade. Scales with your growth.",
+    desc: "Marketing, demo, and client sites in Next.js and React.",
     active: true,
   },
   {
     icon: "LayoutDashboard",
     title: "SaaS Dashboards & Internal Tools",
-    desc: "Django + React. Built for teams. Retainer-ready.",
+    desc: "Django and React product workflows.",
     active: true,
   },
   {
     icon: "Gauge",
     title: "Performance & Architecture Consulting",
-    desc: "High-concurrency audits. Real production experience.",
-    active: false,
-    badge: "Coming Soon",
+    desc: "Production-readiness audits for LLM and agent systems.",
+    active: true,
   },
 ] as const;
 
@@ -331,7 +350,7 @@ export const SERVICES = [
 
 export const EDUCATION = {
   degree: {
-    title: "B.Tech — Electronics & Communication Engineering",
+    title: "B.Tech - Electronics & Communication Engineering",
     institution: "Rajiv Gandhi College of Engineering, Chandrapur",
     year: "2023",
     location: "India",
@@ -341,8 +360,8 @@ export const EDUCATION = {
     institution: "CodingNinjas × IIT Mandi-TIH",
     badge: "NSDC Approved · Govt. Recognized · Skill India",
     status: "In Progress",
-    currentModule: "Module 2 of 4",
-    progress: 50,
+    currentModule: "Module [N] of 4",
+    progress: "[X]",
     totalModules: 4,
     completedModules: 2,
     curriculum: [
@@ -361,15 +380,15 @@ export const EDUCATION = {
 
 // ── Contact Section ──
 
-export const CONTACT_ROLES =
-  "Founding Engineer · Product Engineer · Backend Engineer";
+export const CONTACT_ROLES = "Full-Stack Developer";
 
-export const CONTACT_SERVICES = "MVPs · AI Features · Full-Stack SaaS";
+export const CONTACT_SERVICES =
+  "Django and React builds · AWS and Nginx deployment · LLM and agent system audits";
 
 export const CONTACT_STATS = [
-  { value: "2.5+", label: "Years" },
-  { value: "2", label: "Companies" },
-  { value: "1", label: "Product Built" },
+  { value: "5", label: "Products Built" },
+  { value: "1", label: "Current Role" },
+  { value: "1", label: "Product Studio" },
 ] as const;
 
 // ── Footer ──
