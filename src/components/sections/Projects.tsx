@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Lock, ArrowRight, ExternalLink } from "lucide-react";
+import { Lock, ExternalLink } from "lucide-react";
 import useInView from "@/lib/hooks/useInView";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { StatusBadge } from "@/components/ui/StatusBadge";
@@ -186,7 +186,7 @@ export function Projects() {
                     </div>
                   )}
 
-                  {/* CTA */}
+                  {/* CTA, only when a public URL is available */}
                   {project.cta.href ? (
                     <a
                       href={project.cta.href}
@@ -200,15 +200,7 @@ export function Projects() {
                         className="transition-transform duration-200 group-hover:translate-x-0.5"
                       />
                     </a>
-                  ) : (
-                    <button className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent-fill text-accent-contrast text-[0.82rem] font-semibold shadow-glow-accent transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5 cursor-pointer group">
-                      {project.cta.label}
-                      <ArrowRight
-                        size={14}
-                        className="transition-transform duration-200 group-hover:translate-x-0.5"
-                      />
-                    </button>
-                  )}
+                  ) : null}
                 </TiltCard>
               </motion.div>
             );
