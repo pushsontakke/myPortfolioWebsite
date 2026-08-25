@@ -54,7 +54,7 @@ export function Contact() {
                             <div className="flex flex-wrap gap-3">
                                 <a
                                     href={SITE.resume}
-                                    className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent-fill text-accent-contrast font-semibold text-[0.85rem] shadow-glow-accent transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5 cursor-pointer"
+                                    className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent text-surface font-semibold text-[0.85rem] shadow-glow-accent transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5 cursor-pointer"
                                 >
                                     <Download size={15} strokeWidth={1.5} />
                                     Download Resume
@@ -186,7 +186,7 @@ export function Contact() {
                                     animate={inView ? { opacity: 1, y: 0 } : {}}
                                     transition={{ duration: 0.4, delay: 0.7 }}
                                     type="submit"
-                                    className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full w-full bg-accent-fill text-accent-contrast font-semibold text-[0.9rem] shadow-glow-accent-lg transition-all duration-300 hover:scale-[1.02] hover:-translate-y-0.5 cursor-pointer"
+                                    className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full w-full bg-accent text-surface font-semibold text-[0.9rem] shadow-glow-accent-lg transition-all duration-300 hover:scale-[1.02] hover:-translate-y-0.5 cursor-pointer"
                                 >
                                     <Send
                                         size={15}

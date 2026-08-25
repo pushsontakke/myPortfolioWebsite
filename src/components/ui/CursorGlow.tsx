@@ -39,12 +39,13 @@ export function CursorGlow() {
   return (
     <div
       ref={glowRef}
-      className="cursor-glow pointer-events-none fixed z-50 hidden lg:block will-change-transform"
+      className="pointer-events-none fixed z-50 hidden lg:block will-change-transform"
       style={{
         width: 400,
         height: 400,
         background:
-          "radial-gradient(circle, var(--cursor-glow-1) 0%, var(--cursor-glow-2) 30%, transparent 65%)",
+          "radial-gradient(circle, rgba(234,179,8,0.10) 0%, rgba(234,179,8,0.04) 30%, transparent 65%)",
+        mixBlendMode: "screen",
       }}
     />
   );

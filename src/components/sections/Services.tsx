@@ -83,7 +83,7 @@ function ServiceCard({
               "p-3 rounded-xl shrink-0 transition-all duration-300",
               service.active
                 ? hovered
-                  ? "bg-accent-fill/15"
+                  ? "bg-accent/15"
                   : "bg-accent-dim"
                 : "bg-surface-elevated/40"
             )}
@@ -174,7 +174,7 @@ export function Services() {
         >
           <a
             href="#contact"
-            className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-accent-fill text-accent-contrast font-semibold text-[0.9rem] shadow-glow-accent-lg transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5 cursor-pointer"
+            className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-accent text-surface font-semibold text-[0.9rem] shadow-glow-accent-lg transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5 cursor-pointer"
           >
             Have a project in mind? Let&apos;s talk
             <ArrowRight

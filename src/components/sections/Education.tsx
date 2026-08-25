@@ -78,8 +78,8 @@ export function Education() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="p-6 lg:p-8 rounded-2xl glass"
             style={{
-              borderColor: "var(--color-accent-border)",
-              boxShadow: "var(--shadow-card)",
+              borderColor: "rgba(234, 179, 8, 0.12)",
+              boxShadow: "0 0 30px rgba(234, 179, 8, 0.04)",
             }}
           >
             {/* Header */}
@@ -136,7 +136,7 @@ export function Education() {
                       transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
                       style={{
                         background:
-                          "linear-gradient(90deg, var(--color-accent-fill), var(--color-accent-glow))",
+                          "linear-gradient(90deg, var(--color-accent), var(--color-accent-glow))",
                       }}
                     />
                   </div>
@@ -151,9 +151,9 @@ export function Education() {
                           style={{
                             background:
                               i < (certification.completedModules ?? 0)
-                                ? "var(--color-accent-fill)"
+                                ? "var(--color-accent)"
                                 : i === (certification.completedModules ?? 0)
-                                  ? "linear-gradient(90deg, var(--color-accent-fill), var(--color-accent-dim))"
+                                  ? "linear-gradient(90deg, var(--color-accent), var(--color-accent-dim))"
                                   : "var(--color-surface-elevated)",
                           }}
                         />

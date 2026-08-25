@@ -39,28 +39,28 @@ export function Hero() {
           className="absolute inset-0 animate-aurora-1"
           style={{
             background:
-              "radial-gradient(ellipse 90% 70% at 15% 50%, var(--hero-aurora-1) 0%, transparent 55%)",
+              "radial-gradient(ellipse 90% 70% at 15% 50%, rgba(234,179,8,0.14) 0%, transparent 55%)",
           }}
         />
         <div
           className="absolute inset-0 animate-aurora-2"
           style={{
             background:
-              "radial-gradient(ellipse 70% 80% at 85% 25%, var(--hero-aurora-2) 0%, transparent 55%)",
+              "radial-gradient(ellipse 70% 80% at 85% 25%, rgba(234,179,8,0.08) 0%, transparent 55%)",
           }}
         />
         <div
           className="absolute inset-0 animate-aurora-3"
           style={{
             background:
-              "radial-gradient(ellipse 60% 50% at 50% 85%, var(--hero-aurora-3) 0%, transparent 55%)",
+              "radial-gradient(ellipse 60% 50% at 50% 85%, rgba(234,179,8,0.06) 0%, transparent 55%)",
           }}
         />
         <div
           className="absolute inset-0 animate-aurora-1"
           style={{
             background:
-              "radial-gradient(ellipse 40% 40% at 70% 60%, var(--hero-aurora-4) 0%, transparent 55%)",
+              "radial-gradient(ellipse 40% 40% at 70% 60%, rgba(234,179,8,0.05) 0%, transparent 55%)",
             animationDuration: "14s",
           }}
         />
@@ -119,7 +119,7 @@ export function Hero() {
                     style={{
                       width: "40%",
                       background:
-                        "linear-gradient(90deg, var(--color-accent-fill), transparent)",
+                        "linear-gradient(90deg, var(--color-accent), transparent)",
                     }}
                   />
                 </span>
@@ -146,7 +146,7 @@ export function Hero() {
                   <span className="text-accent">
                     {HERO_ROLES[roleIndex]}
                   </span>
-                  <span className="w-0.5 h-5 inline-block bg-accent-fill animate-blink" />
+                  <span className="w-0.5 h-5 inline-block bg-accent animate-blink" />
                 </motion.div>
               </AnimatePresence>
             </motion.div>
@@ -195,14 +195,14 @@ export function Hero() {
             >
               <a
                 href={SITE.resume}
-                className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-accent-fill text-accent-contrast font-semibold shadow-glow-accent-lg transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5 cursor-pointer text-[0.9rem]"
+                className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-accent text-surface font-semibold shadow-glow-accent-lg transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5 cursor-pointer text-[0.9rem]"
               >
                 <Download size={16} strokeWidth={1.5} />
                 Download Resume
               </a>
               <a
                 href="#contact"
-                className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full border border-accent-border text-accent bg-accent-dim transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5 cursor-pointer text-[0.9rem]"
+                className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full border border-accent/50 text-accent bg-accent-dim transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5 cursor-pointer text-[0.9rem]"
               >
                 Start a Project
                 <ArrowRight

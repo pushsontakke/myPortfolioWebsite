@@ -112,7 +112,7 @@ export function Sidebar() {
                 {active === id && (
                   <motion.div
                     layoutId="activeSection"
-                    className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-4 rounded-full bg-accent-fill"
+                    className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-4 rounded-full bg-accent"
                     transition={{
                       type: "spring",
                       stiffness: 400,
@@ -162,7 +162,7 @@ export function Sidebar() {
           {/* Resume Button */}
           <button
             onClick={() => scrollTo("contact")}
-            className="mx-3 px-3 py-2.5 rounded-full bg-accent-fill text-accent-contrast text-[0.75rem] font-semibold shadow-glow-accent transition-all duration-300 cursor-pointer hover:scale-[1.03] hover:-translate-y-0.5 flex items-center justify-center gap-1.5"
+            className="mx-3 px-3 py-2.5 rounded-full bg-accent text-surface text-[0.75rem] font-semibold shadow-glow-accent transition-all duration-300 cursor-pointer hover:scale-[1.03] hover:-translate-y-0.5 flex items-center justify-center gap-1.5"
           >
             <Download size={12} strokeWidth={1.5} />
             Resume
@@ -171,11 +171,11 @@ export function Sidebar() {
       </nav>
 
       {/* ── Mobile Nav Bar ── */}
-      <nav className="lg:hidden fixed top-4 left-4 right-4 z-50 rounded-2xl px-5 py-3.5 flex items-center justify-between bg-surface/[0.92] backdrop-blur-xl border border-border-subtle shadow-[0_20px_45px_rgba(74,54,21,0.12)]">
+      <nav className="lg:hidden fixed top-4 left-4 right-4 z-50 rounded-2xl px-5 py-3.5 flex items-center justify-between bg-surface/[0.92] backdrop-blur-xl border border-border-subtle shadow-[0_4px_24px_rgba(0,0,0,0.4)]">
         <span className="font-display text-xl font-extrabold text-content">
           PS<span className="text-accent">.</span>
         </span>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-status-success opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-status-success" />
