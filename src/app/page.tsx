@@ -1,5 +1,5 @@
 
-// Assembles the layout shell — imports Sidebar, CursorGlow, and placeholder sections
+// Assembles the layout shell, importing the site sections and shared effects.
 import { CursorGlow } from "@/components/ui/CursorGlow";
 import { Sidebar } from "@/components/layout/Sidebar";
 

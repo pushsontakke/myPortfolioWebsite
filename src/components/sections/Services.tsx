@@ -108,11 +108,6 @@ function ServiceCard({
               >
                 {service.title}
               </h3>
-              {"badge" in service && service.badge && (
-                <span className="px-2.5 py-0.5 rounded-full bg-content-muted/6 border border-content-muted/10 text-tiny text-content-faint italic">
-                  {service.badge}
-                </span>
-              )}
             </div>
             <p
               className={cn(
@@ -150,7 +145,7 @@ export function Services() {
         >
           <SectionHeader
             tag="// services"
-            title="I help early-stage startups go from idea to live, scalable product — without hiring a full engineering team."
+            title="I work across product design, build, deployment, and iteration."
             watermark="Services"
           />
           <p className="mt-3 text-accent font-display text-[1.05rem] font-semibold tracking-wide">

@@ -36,7 +36,7 @@ export function Contact() {
                 </motion.div>
 
                 <div className="grid lg:grid-cols-2 gap-10 lg:gap-0">
-                    {/* ── Left — Recruiters ── */}
+                    {/* Left, recruiters */}
                     <motion.div
                         initial={{ opacity: 0, y: 25 }}
                         animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -87,7 +87,7 @@ export function Contact() {
                         </div>
                     </motion.div>
 
-                    {/* ── Right — Freelance Form ── */}
+                    {/* Right, freelance form */}
                     <motion.div
                         initial={{ opacity: 0, y: 25 }}
                         animate={inView ? { opacity: 1, y: 0 } : {}}
