@@ -134,6 +134,13 @@ html[data-theme="light"] {
   --shadow-card-hover-value: 0 18px 48px rgba(234, 179, 8, 0.16), 0 12px 28px rgba(74, 54, 21, 0.12);
 }
 
+html[data-theme-changing],
+html[data-theme-changing] *,
+html[data-theme-changing] *::before,
+html[data-theme-changing] *::after {
+  transition: none !important;
+}
+
 /* ─────────────────────────────────────────────
    Keyframes
    ───────────────────────────────────────────── */

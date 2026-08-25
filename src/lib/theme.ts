@@ -27,8 +27,13 @@ export function applyTheme(theme: Theme) {
   }
 
   const root = document.documentElement;
+  root.dataset.themeChanging = "true";
   root.dataset.theme = theme;
   root.style.colorScheme = theme;
+
+  requestAnimationFrame(() => {
+    delete root.dataset.themeChanging;
+  });
 }
 
 export function persistTheme(theme: Theme) {
