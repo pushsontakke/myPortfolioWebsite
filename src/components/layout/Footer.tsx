@@ -22,7 +22,7 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Center — Nav links */}
+          {/* Center, nav links */}
           <div className="flex gap-8">
             {FOOTER_LINKS.map((link) => (
               <a
@@ -35,7 +35,7 @@ export function Footer() {
             ))}
           </div>
 
-          {/* Right — Social icons */}
+          {/* Right, social icons */}
           <div className="flex gap-3">
             {socialLinks.map(({ icon: Icon, href }) => (
               <a

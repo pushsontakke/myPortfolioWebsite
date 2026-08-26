@@ -20,7 +20,7 @@ const jetBrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Portfolio | Piyush Sontakke",
-  description: "Product Engineer who ships — not just codes.",
+  description: "Full-Stack Developer building products and sites.",
 };
 
 export default function RootLayout({

@@ -119,50 +119,50 @@ export function Education() {
               />
             </div>
 
-            {/* Progress bar */}
+            {/* Progress, shown as text until the founder supplies the current values */}
             <div className="mb-5">
-              <div className="flex justify-between mb-2 text-[0.75rem] text-content-secondary">
+              {/* <div className="flex justify-between mb-2 text-[0.75rem] text-content-secondary">
                 <span>{certification.currentModule}</span>
                 <span className="font-mono text-accent">
                   {certification.progress}%
                 </span>
-              </div>
-              <div className="h-1.5 rounded-full overflow-hidden bg-surface-elevated/60">
-                <motion.div
-                  className="h-full rounded-full"
-                  initial={{ width: 0 }}
-                  animate={
-                    inView
-                      ? { width: `${certification.progress}%` }
-                      : {}
-                  }
-                  transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
-                  style={{
-                    background:
-                      "linear-gradient(90deg, var(--color-accent-fill), var(--color-accent-glow))",
-                  }}
-                />
-              </div>
-
-              {/* Module dots */}
-              <div className="flex gap-2 mt-3">
-                {Array.from({ length: certification.totalModules }).map(
-                  (_, i) => (
-                    <div
-                      key={i}
-                      className="flex-1 h-1 rounded-full"
+              </div> */}
+              {typeof certification.progress === "number" && (
+                <>
+                  <div className="h-1.5 rounded-full overflow-hidden bg-surface-elevated/60">
+                    <motion.div
+                      className="h-full rounded-full"
+                      initial={{ width: 0 }}
+                      animate={inView ? { width: `${certification.progress}%` } : {}}
+                      transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
                       style={{
                         background:
-                          i < certification.completedModules
-                            ? "var(--color-accent-fill)"
-                            : i === certification.completedModules
-                              ? "linear-gradient(90deg, var(--color-accent-fill), var(--color-accent-dim))"
-                              : "var(--color-surface-elevated)",
+                          "linear-gradient(90deg, var(--color-accent), var(--color-accent-glow))",
                       }}
                     />
-                  )
-                )}
-              </div>
+                  </div>
+
+                  {/* Module dots */}
+                  <div className="flex gap-2 mt-3">
+                    {Array.from({ length: certification.totalModules }).map(
+                      (_, i) => (
+                        <div
+                          key={i}
+                          className="flex-1 h-1 rounded-full"
+                          style={{
+                            background:
+                              i < (certification.completedModules ?? 0)
+                                ? "var(--color-accent)"
+                                : i === (certification.completedModules ?? 0)
+                                  ? "linear-gradient(90deg, var(--color-accent), var(--color-accent-dim))"
+                                  : "var(--color-surface-elevated)",
+                          }}
+                        />
+                      )
+                    )}
+                  </div>
+                </>
+              )}
             </div>
 
             {/* Curriculum pills */}

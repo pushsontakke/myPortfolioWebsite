@@ -1,5 +1,5 @@
 export const THEME_STORAGE_KEY = "portfolio-theme";
-export const DEFAULT_THEME = "light";
+export const DEFAULT_THEME = "dark";
 export const THEMES = ["light", "dark"] as const;
 export const THEME_CHANGE_EVENT = "portfolio-theme-change";
 
@@ -27,8 +27,13 @@ export function applyTheme(theme: Theme) {
   }
 
   const root = document.documentElement;
+  root.dataset.themeChanging = "true";
   root.dataset.theme = theme;
   root.style.colorScheme = theme;
+
+  requestAnimationFrame(() => {
+    delete root.dataset.themeChanging;
+  });
 }
 
 export function persistTheme(theme: Theme) {

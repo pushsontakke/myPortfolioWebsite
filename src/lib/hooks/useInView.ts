@@ -4,16 +4,16 @@
 // Intersection observer hook shared by every section. Key points:
 // - Mark it `"use client"` at the top
 // - Uses `IntersectionObserver` with a `threshold` parameter
-// - Fires once — disconnects after first intersection (one-shot for scroll animations)
-// - Returns `{ ref, inView }` — attach `ref` to the section element, use `inView` as animation trigger
+// - Fires once, then disconnects after the first intersection.
+// - Returns `{ ref, inView }`, for use as an animation trigger.
 // - Type the ref as `useRef<HTMLElement>(null)`
 
 /**
  * Detects when an element enters the viewport.
- * Fires once — disconnects observer after first intersection.
+ * Fires once, then disconnects the observer after the first intersection.
  *
  * @param threshold - Fraction of element visible before triggering (0-1)
- * @returns { ref, inView } — attach ref to the section element
+ * @returns { ref, inView }, attach ref to the section element
  *
  * @example
  * const { ref, inView } = useInView(0.15);

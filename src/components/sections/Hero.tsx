@@ -2,19 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import {
-  Github,
-  Linkedin,
-  Mail,
-  ChevronDown,
-  Download,
-  ArrowRight,
-  ArrowUpRight,
-} from "lucide-react";
+import { Github, Linkedin, Mail, ChevronDown, Download, ArrowRight } from "lucide-react";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import {
   HERO_ROLES,
   HERO_HEADLINE_WORDS,
+  HERO_HEADLINE,
   HERO_SUBTITLE,
   HERO_METRICS,
   SITE,
@@ -165,25 +158,28 @@ export function Hero() {
             </motion.div>
 
             {/* Staggered headline */}
-            <div className="mb-3 flex flex-wrap gap-x-2.5 gap-y-1">
-              {HERO_HEADLINE_WORDS.map((word, i) => (
-                <motion.span
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.5 + i * 0.06 }}
-                  className="font-display font-semibold"
-                  style={{
-                    fontSize: "clamp(1.1rem, 2vw, 1.5rem)",
-                    color:
-                      word === "ships"
-                        ? "var(--color-accent)"
-                        : "var(--color-content)",
-                  }}
-                >
-                  {word}
-                </motion.span>
-              ))}
+            <div className="mb-3" aria-label={HERO_HEADLINE}>
+              <span className="sr-only">{HERO_HEADLINE}</span>
+              <div className="flex flex-wrap gap-x-2.5 gap-y-1" aria-hidden="true">
+                {HERO_HEADLINE_WORDS.map((word, i) => (
+                  <motion.span
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.5 + i * 0.06 }}
+                    className="font-display font-semibold"
+                    style={{
+                      fontSize: "clamp(1.1rem, 2vw, 1.5rem)",
+                      color:
+                        word === "ships,"
+                          ? "var(--color-accent)"
+                          : "var(--color-content)",
+                    }}
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+              </div>
             </div>
 
             {/* Subtitle */}
@@ -250,7 +246,7 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* ── Right Column — Metrics ── */}
+          {/* Right column, metrics */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}

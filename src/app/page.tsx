@@ -1,5 +1,5 @@
 
-// Assembles the layout shell — imports Sidebar, CursorGlow, and placeholder sections
+// Assembles the layout shell, importing the site sections and shared effects.
 import { CursorGlow } from "@/components/ui/CursorGlow";
 import { Sidebar } from "@/components/layout/Sidebar";
 
@@ -10,7 +10,7 @@ import { About } from "@/components/sections/About";
 import { Skills } from "@/components/sections/Skills";
 import { Experience } from "@/components/sections/Experience";
 import { Projects } from "@/components/sections/Projects";
-// import { Services } from "@/components/sections/Services";
+import { Services } from "@/components/sections/Services";
 // import { Testimonials } from "@/components/sections/Testimonials";
 import { Education } from "@/components/sections/Education";
 import { Contact } from "@/components/sections/Contact";
@@ -29,7 +29,7 @@ export default function Home() {
         <Skills />
         <Experience />
         <Projects />
-        {/* <Services /> */}
+        <Services />
         {/* <Testimonials /> */}
         <Education />
         <Contact />
