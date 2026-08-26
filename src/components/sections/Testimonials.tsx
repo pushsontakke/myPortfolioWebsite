@@ -26,6 +26,7 @@ export function Testimonials() {
           <SectionHeader
             tag="// testimonials"
             title="What people say"
+            watermark="Testimonials"
           />
         </motion.div>
 

@@ -15,7 +15,7 @@ export function Projects() {
     <section
       id="projects"
       ref={ref}
-      className="relative py-24 lg:py-36 bg-surface section-divider dot-grid"
+      className="relative py-24 lg:py-36 overflow-hidden bg-surface section-divider dot-grid"
     >
       <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12">
         {/* Section header */}
@@ -100,7 +100,7 @@ export function Projects() {
                     <div className="p-4 rounded-xl bg-surface/80 border border-border-subtle mb-6">
                       <div className="flex items-center gap-1.5 mb-3">
                         <span className="w-2.5 h-2.5 rounded-full bg-status-error" />
-                        <span className="w-2.5 h-2.5 rounded-full bg-accent" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-accent-fill" />
                         <span className="w-2.5 h-2.5 rounded-full bg-status-success" />
                         <span className="ml-2 font-mono text-[0.6rem] text-content-faint">
                           architecture.md

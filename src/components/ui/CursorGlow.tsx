@@ -11,11 +11,31 @@ export function CursorGlow() {
   const raf = useRef<number>(0);
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      pos.current = { x: e.clientX, y: e.clientY };
+    const mediaQuery = window.matchMedia(
+      "(min-width: 1024px) and (pointer: fine) and (prefers-reduced-motion: no-preference)"
+    );
+
+    if (!mediaQuery.matches) {
+      return;
+    }
+
+    const startAnimation = () => {
+      if (raf.current !== 0) {
+        return;
+      }
+
+      raf.current = requestAnimationFrame(animate);
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    const handleMouseMove = (e: MouseEvent) => {
+      pos.current = { x: e.clientX, y: e.clientY };
+      startAnimation();
+    };
+
+    const handleMouseLeave = () => {
+      pos.current = { x: -300, y: -300 };
+      startAnimation();
+    };
 
     const animate = () => {
       current.current.x += (pos.current.x - current.current.x) * 0.12;
@@ -25,13 +45,23 @@ export function CursorGlow() {
         glowRef.current.style.transform = `translate(${current.current.x - 200}px, ${current.current.y - 200}px)`;
       }
 
+      const deltaX = Math.abs(pos.current.x - current.current.x);
+      const deltaY = Math.abs(pos.current.y - current.current.y);
+
+      if (deltaX < 0.5 && deltaY < 0.5) {
+        raf.current = 0;
+        return;
+      }
+
       raf.current = requestAnimationFrame(animate);
     };
 
-    raf.current = requestAnimationFrame(animate);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    window.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseleave", handleMouseLeave);
       cancelAnimationFrame(raf.current);
     };
   }, []);
@@ -39,13 +69,12 @@ export function CursorGlow() {
   return (
     <div
       ref={glowRef}
-      className="pointer-events-none fixed z-50 hidden lg:block will-change-transform"
+      className="cursor-glow pointer-events-none fixed z-50 hidden lg:block will-change-transform"
       style={{
         width: 400,
         height: 400,
         background:
-          "radial-gradient(circle, rgba(234,179,8,0.10) 0%, rgba(234,179,8,0.04) 30%, transparent 65%)",
-        mixBlendMode: "screen",
+          "radial-gradient(circle, var(--cursor-glow-1) 0%, var(--cursor-glow-2) 30%, transparent 65%)",
       }}
     />
   );

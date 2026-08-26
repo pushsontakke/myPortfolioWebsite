@@ -17,7 +17,7 @@ export function Education() {
     <section
       id="education"
       ref={ref}
-      className="relative py-24 lg:py-36 bg-surface-alt section-divider"
+      className="relative py-24 lg:py-36 overflow-hidden bg-surface-alt section-divider"
     >
       <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12">
         {/* Section header */}
@@ -30,6 +30,7 @@ export function Education() {
           <SectionHeader
             tag="// education & certifications"
             title="Credentials"
+            watermark="Edu."
           />
         </motion.div>
 
@@ -78,8 +79,8 @@ export function Education() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="p-6 lg:p-8 rounded-2xl glass"
             style={{
-              borderColor: "rgba(234, 179, 8, 0.12)",
-              boxShadow: "0 0 30px rgba(234, 179, 8, 0.04)",
+              borderColor: "var(--color-accent-border)",
+              boxShadow: "var(--shadow-card)",
             }}
           >
             {/* Header */}

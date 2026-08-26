@@ -24,6 +24,14 @@ export function Hero() {
 
   // Rotate roles every 3 seconds
   useEffect(() => {
+    const mediaQuery = window.matchMedia(
+      "(min-width: 1024px) and (prefers-reduced-motion: no-preference)"
+    );
+
+    if (!mediaQuery.matches) {
+      return;
+    }
+
     const timer = setInterval(
       () => setRoleIndex((i) => (i + 1) % HERO_ROLES.length),
       3000
@@ -36,31 +44,31 @@ export function Hero() {
       {/* ── Aurora Background ── */}
       <div className="absolute inset-0 z-0">
         <div
-          className="absolute inset-0 animate-aurora-1"
+          className="hero-aurora absolute inset-0 animate-aurora-1"
           style={{
             background:
-              "radial-gradient(ellipse 90% 70% at 15% 50%, rgba(234,179,8,0.14) 0%, transparent 55%)",
+              "radial-gradient(ellipse 90% 70% at 15% 50%, var(--hero-aurora-1) 0%, transparent 55%)",
           }}
         />
         <div
-          className="absolute inset-0 animate-aurora-2"
+          className="hero-aurora absolute inset-0 animate-aurora-2"
           style={{
             background:
-              "radial-gradient(ellipse 70% 80% at 85% 25%, rgba(234,179,8,0.08) 0%, transparent 55%)",
+              "radial-gradient(ellipse 70% 80% at 85% 25%, var(--hero-aurora-2) 0%, transparent 55%)",
           }}
         />
         <div
-          className="absolute inset-0 animate-aurora-3"
+          className="hero-aurora hero-aurora-extra absolute inset-0 animate-aurora-3"
           style={{
             background:
-              "radial-gradient(ellipse 60% 50% at 50% 85%, rgba(234,179,8,0.06) 0%, transparent 55%)",
+              "radial-gradient(ellipse 60% 50% at 50% 85%, var(--hero-aurora-3) 0%, transparent 55%)",
           }}
         />
         <div
-          className="absolute inset-0 animate-aurora-1"
+          className="hero-aurora hero-aurora-extra absolute inset-0 animate-aurora-1"
           style={{
             background:
-              "radial-gradient(ellipse 40% 40% at 70% 60%, rgba(234,179,8,0.05) 0%, transparent 55%)",
+              "radial-gradient(ellipse 40% 40% at 70% 60%, var(--hero-aurora-4) 0%, transparent 55%)",
             animationDuration: "14s",
           }}
         />
@@ -103,11 +111,9 @@ export function Hero() {
               className="mb-3"
             >
               <h1
-                className="font-display font-extrabold text-content"
+                className="font-display font-extrabold text-content text-[2.65rem] sm:text-[3rem] lg:text-[5rem]"
                 style={{
-                  fontSize: "clamp(3rem, 6vw, 5rem)",
                   lineHeight: 1.0,
-                  letterSpacing: "-0.02em",
                 }}
               >
                 Piyush
@@ -119,7 +125,7 @@ export function Hero() {
                     style={{
                       width: "40%",
                       background:
-                        "linear-gradient(90deg, var(--color-accent), transparent)",
+                        "linear-gradient(90deg, var(--color-accent-fill), transparent)",
                     }}
                   />
                 </span>
@@ -146,7 +152,7 @@ export function Hero() {
                   <span className="text-accent">
                     {HERO_ROLES[roleIndex]}
                   </span>
-                  <span className="w-0.5 h-5 inline-block bg-accent animate-blink" />
+                  <span className="w-0.5 h-5 inline-block bg-accent-fill animate-blink" />
                 </motion.div>
               </AnimatePresence>
             </motion.div>
@@ -181,7 +187,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.9 }}
-              className="mb-8 text-content-secondary text-[0.95rem] tracking-wide"
+              className="mb-8 max-w-full text-content-secondary text-[0.95rem] tracking-wide"
             >
               {HERO_SUBTITLE}
             </motion.p>
@@ -195,14 +201,15 @@ export function Hero() {
             >
               <a
                 href={SITE.resume}
-                className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-accent text-surface font-semibold shadow-glow-accent-lg transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5 cursor-pointer text-[0.9rem]"
+                download="Piyush_Sontakke_Resume.pdf"
+                className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-accent-fill text-accent-contrast font-semibold shadow-glow-accent-lg transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5 cursor-pointer text-[0.9rem]"
               >
                 <Download size={16} strokeWidth={1.5} />
                 Download Resume
               </a>
               <a
                 href="#contact"
-                className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full border border-accent/50 text-accent bg-accent-dim transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5 cursor-pointer text-[0.9rem]"
+                className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full border border-accent-border text-accent bg-accent-dim transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5 cursor-pointer text-[0.9rem]"
               >
                 Start a Project
                 <ArrowRight
@@ -244,15 +251,16 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.9, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.7 }}
+            className="w-full"
           >
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid w-full grid-cols-2 gap-3 sm:gap-4">
               {HERO_METRICS.map((metric, i) => (
                 <motion.div
                   key={metric.label}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.9 + i * 0.1 }}
-                  className="group p-5 rounded-2xl glass transition-all duration-300 hover:-translate-y-1"
+                  className="group min-w-0 rounded-2xl glass p-4 transition-all duration-300 hover:-translate-y-1 sm:p-5"
                 >
                   <div
                     className="font-display font-bold text-accent tracking-tight"
@@ -265,6 +273,37 @@ export function Hero() {
                   </div>
                 </motion.div>
               ))}
+              <motion.a
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 1.3 }}
+                href={SITE.business.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group col-span-2 min-w-0 rounded-2xl glass p-4 transition-all duration-300 hover:-translate-y-1 sm:p-5"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div className="min-w-0">
+                    <p className="text-[0.65rem] uppercase tracking-[0.24em] text-content-faint">
+                      {SITE.business.heroEyebrow}
+                    </p>
+                    <p className="mt-1 font-display text-[1.35rem] font-semibold text-content">
+                      {SITE.business.name}
+                    </p>
+                    <p className="mt-1.5 max-w-sm text-[0.88rem] leading-relaxed text-content-secondary">
+                      {SITE.business.heroDescription}
+                    </p>
+                    <span className="mt-3 inline-flex items-center gap-1.5 text-[0.84rem] font-semibold text-accent">
+                      {SITE.business.heroCta}
+                      <ArrowUpRight
+                        size={15}
+                        strokeWidth={1.6}
+                        className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                      />
+                    </span>
+                  </div>
+                </div>
+              </motion.a>
             </div>
           </motion.div>
         </div>

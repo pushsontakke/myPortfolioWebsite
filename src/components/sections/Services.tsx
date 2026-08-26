@@ -9,6 +9,7 @@ import {
   LayoutDashboard,
   Gauge,
   ArrowRight,
+  ArrowUpRight,
   type LucideIcon,
 } from "lucide-react";
 import useInView from "@/lib/hooks/useInView";
@@ -83,7 +84,7 @@ function ServiceCard({
               "p-3 rounded-xl shrink-0 transition-all duration-300",
               service.active
                 ? hovered
-                  ? "bg-accent/15"
+                  ? "bg-accent-fill/15"
                   : "bg-accent-dim"
                 : "bg-surface-elevated/40"
             )}
@@ -133,7 +134,7 @@ export function Services() {
     <section
       id="services"
       ref={ref}
-      className="relative py-24 lg:py-36 bg-surface-alt section-divider"
+      className="relative py-24 lg:py-36 overflow-hidden bg-surface-alt section-divider"
     >
       <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12">
         {/* Section header */}
@@ -151,6 +152,33 @@ export function Services() {
           <p className="mt-3 text-accent font-display text-[1.05rem] font-semibold tracking-wide">
             Founding-Engineer-as-a-Service
           </p>
+          <motion.a
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.12 }}
+            href={SITE.business.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group mt-5 flex max-w-xl items-start gap-3 rounded-2xl border border-border-subtle bg-surface-card/70 px-4 py-3 text-left transition-all duration-300 hover:-translate-y-0.5 hover:border-accent-border hover:bg-surface-card"
+          >
+            <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-accent-fill shadow-glow-accent" />
+            <div className="min-w-0">
+              <p className="text-[0.84rem] font-semibold text-content">
+                Building {SITE.business.name}
+              </p>
+              <p className="mt-1 text-[0.83rem] leading-relaxed text-content-secondary">
+                {SITE.business.servicesDescription}
+              </p>
+              <span className="mt-2 inline-flex items-center gap-1.5 text-[0.8rem] font-semibold text-accent">
+                {SITE.business.servicesCta}
+                <ArrowUpRight
+                  size={14}
+                  strokeWidth={1.6}
+                  className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                />
+              </span>
+            </div>
+          </motion.a>
         </motion.div>
 
         {/* Service cards grid */}
@@ -174,7 +202,7 @@ export function Services() {
         >
           <a
             href="#contact"
-            className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-accent text-surface font-semibold text-[0.9rem] shadow-glow-accent-lg transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5 cursor-pointer"
+            className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-accent-fill text-accent-contrast font-semibold text-[0.9rem] shadow-glow-accent-lg transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5 cursor-pointer"
           >
             Have a project in mind? Let&apos;s talk
             <ArrowRight

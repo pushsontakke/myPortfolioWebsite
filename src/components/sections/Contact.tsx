@@ -5,10 +5,10 @@ import { Download, Calendar, Mail } from "lucide-react";
 import useInView from "@/lib/hooks/useInView";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import {
-    SITE,
-    CONTACT_ROLES,
-    CONTACT_SERVICES,
-    CONTACT_STATS,
+  SITE,
+  CONTACT_ROLES,
+  CONTACT_SERVICES,
+  CONTACT_STATS,
 } from "@/lib/constants";
 
 export function Contact() {
@@ -20,20 +20,12 @@ export function Contact() {
             ref={ref}
             className="relative py-24 lg:py-36 bg-surface section-divider dot-grid"
         >
-            <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12">
-                {/* Section header */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={inView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6 }}
-                    className="mb-14"
-                >
-                    <SectionHeader
-                        tag="// contact"
-                        title="Let's connect"
-                        watermark="Say Hi"
-                    />
-                </motion.div>
+          <SectionHeader
+            tag="// contact"
+            title="Let's connect"
+            watermark="Say Hi"
+          />
+        </motion.div>
 
                 <div className="grid lg:grid-cols-2 gap-10 lg:gap-0">
                     {/* Left, recruiters */}
@@ -51,41 +43,42 @@ export function Contact() {
                                 {CONTACT_ROLES}
                             </p>
 
-                            <div className="flex flex-wrap gap-3">
-                                <a
-                                    href={SITE.resume}
-                                    className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent text-surface font-semibold text-[0.85rem] shadow-glow-accent transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5 cursor-pointer"
-                                >
-                                    <Download size={15} strokeWidth={1.5} />
-                                    Download Resume
-                                </a>
-                                <a
-                                    href={`mailto:${SITE.email}`}
-                                    className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border-strong text-content-secondary text-[0.85rem] bg-surface-card/30 transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5 cursor-pointer"
-                                >
-                                    <Calendar size={15} strokeWidth={1.5} />
-                                    Book a Call
-                                </a>
-                            </div>
-                        </div>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href={SITE.resume}
+                  download="Piyush_Sontakke_Resume.pdf"
+                  className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent-fill text-accent-contrast font-semibold text-[0.85rem] shadow-glow-accent transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5 cursor-pointer"
+                >
+                  <Download size={15} strokeWidth={1.5} />
+                  Download Resume
+                </a>
+                <a
+                  href={`mailto:${SITE.email}`}
+                  className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border-strong text-content-secondary text-[0.85rem] bg-surface-card/30 transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5 cursor-pointer"
+                >
+                  <Calendar size={15} strokeWidth={1.5} />
+                  Book a Call
+                </a>
+              </div>
+            </div>
 
-                        {/* Quick stats */}
-                        <div className="grid grid-cols-3 gap-3">
-                            {CONTACT_STATS.map((stat) => (
-                                <div
-                                    key={stat.label}
-                                    className="text-center p-3 rounded-xl glass"
-                                >
-                                    <div className="font-display font-bold text-content text-[1.1rem]">
-                                        {stat.value}
-                                    </div>
-                                    <div className="text-tiny text-content-muted">
-                                        {stat.label}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </motion.div>
+            {/* Quick stats */}
+            <div className="grid grid-cols-3 gap-3">
+              {CONTACT_STATS.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="text-center p-3 rounded-xl glass"
+                >
+                  <div className="font-display font-bold text-content text-[1.1rem]">
+                    {stat.value}
+                  </div>
+                  <div className="text-tiny text-content-muted">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
 
                     {/* Right, freelance form */}
                     <motion.div
@@ -101,7 +94,7 @@ export function Contact() {
                             {CONTACT_SERVICES}
                         </p>
 
-                        {/* {submitted ? (
+            {/* {submitted ? (
                             <motion.div
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 animate={{ opacity: 1, scale: 1 }}
@@ -186,7 +179,7 @@ export function Contact() {
                                     animate={inView ? { opacity: 1, y: 0 } : {}}
                                     transition={{ duration: 0.4, delay: 0.7 }}
                                     type="submit"
-                                    className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full w-full bg-accent text-surface font-semibold text-[0.9rem] shadow-glow-accent-lg transition-all duration-300 hover:scale-[1.02] hover:-translate-y-0.5 cursor-pointer"
+                                    className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full w-full bg-accent-fill text-accent-contrast font-semibold text-[0.9rem] shadow-glow-accent-lg transition-all duration-300 hover:scale-[1.02] hover:-translate-y-0.5 cursor-pointer"
                                 >
                                     <Send
                                         size={15}
@@ -198,19 +191,16 @@ export function Contact() {
                             </form>
                         )} */}
 
-                        <div className="mt-5 flex items-center gap-2 text-label text-content-muted">
-                            <Mail size={14} strokeWidth={1.5} />
-                            {/* <span>Or email directly: </span> */}
-                            <span>send an email: </span>
-                            <a
-                                href={`mailto:${SITE.email}`}
-                                className="text-accent transition-colors duration-200 hover:underline"
-                            >
-                                {SITE.email}
-                            </a>
-                        </div>
-                    </motion.div>
-                </div>
+            <div className="mt-5 flex items-center gap-2 text-label text-content-muted">
+              <Mail size={14} strokeWidth={1.5} />
+              {/* <span>Or email directly: </span> */}
+              <span>email: </span>
+              <a
+                href={`mailto:${SITE.email}`}
+                className="text-accent transition-colors duration-200 hover:underline"
+              >
+                {SITE.email}
+              </a>
             </div>
         </section>
     );
