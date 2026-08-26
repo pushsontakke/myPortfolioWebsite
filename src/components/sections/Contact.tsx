@@ -12,13 +12,21 @@ import {
 } from "@/lib/constants";
 
 export function Contact() {
-    const { ref, inView } = useInView(0.12);
+  const { ref, inView } = useInView(0.12);
 
-    return (
-        <section
-            id="contact"
-            ref={ref}
-            className="relative py-24 lg:py-36 bg-surface section-divider dot-grid"
+  return (
+    <section
+      id="contact"
+      ref={ref}
+      className="relative py-24 lg:py-36 bg-surface section-divider dot-grid"
+    >
+      <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12">
+        {/* Section header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="mb-14"
         >
           <SectionHeader
             tag="// contact"
@@ -27,21 +35,21 @@ export function Contact() {
           />
         </motion.div>
 
-                <div className="grid lg:grid-cols-2 gap-10 lg:gap-0">
-                    {/* Left, recruiters */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 25 }}
-                        animate={inView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="lg:pr-12 lg:border-r lg:border-border-subtle"
-                    >
-                        <div className="p-6 rounded-2xl glass mb-6">
-                            <h3 className="font-display text-[1.4rem] font-bold text-content mb-2">
-                                Open to new opportunities
-                            </h3>
-                            <p className="text-content-secondary text-[0.9rem] leading-relaxed mb-6">
-                                {CONTACT_ROLES}
-                            </p>
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-0">
+          {/* ── Left — Recruiters ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:pr-12 lg:border-r lg:border-border-subtle"
+          >
+            <div className="p-6 rounded-2xl glass mb-6">
+              <h3 className="font-display text-[1.4rem] font-bold text-content mb-2">
+                Open to new opportunities
+              </h3>
+              <p className="text-content-secondary text-[0.9rem] leading-relaxed mb-6">
+                {CONTACT_ROLES}
+              </p>
 
               <div className="flex flex-wrap gap-3">
                 <a
@@ -80,19 +88,19 @@ export function Contact() {
             </div>
           </motion.div>
 
-                    {/* Right, freelance form */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 25 }}
-                        animate={inView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                        className="lg:pl-12"
-                    >
-                        <h3 className="font-display text-[1.4rem] font-bold text-content mb-2">
-                            Have a project?
-                        </h3>
-                        <p className="text-content-secondary text-[0.9rem] mb-6">
-                            {CONTACT_SERVICES}
-                        </p>
+          {/* ── Right — Freelance Form ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="lg:pl-12"
+          >
+            <h3 className="font-display text-[1.4rem] font-bold text-content mb-2">
+              Have a project?
+            </h3>
+            <p className="text-content-secondary text-[0.9rem] mb-6">
+              {CONTACT_SERVICES}
+            </p>
 
             {/* {submitted ? (
                             <motion.div
@@ -202,6 +210,9 @@ export function Contact() {
                 {SITE.email}
               </a>
             </div>
-        </section>
-    );
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
 }
