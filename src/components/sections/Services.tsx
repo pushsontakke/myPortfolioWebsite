@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import useInView from "@/lib/hooks/useInView";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { SERVICES } from "@/lib/constants";
+import { SERVICES, SITE } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 const iconMap: Record<string, LucideIcon> = {

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Github, Linkedin, Mail, ChevronDown, Download, ArrowRight } from "lucide-react";
+import { Github, Linkedin, Mail, ChevronDown, Download, ArrowUpRight } from "lucide-react";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import {
   HERO_ROLES,
@@ -212,7 +212,7 @@ export function Hero() {
                 className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full border border-accent-border text-accent bg-accent-dim transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5 cursor-pointer text-[0.9rem]"
               >
                 Start a Project
-                <ArrowRight
+                <ArrowUpRight
                   size={16}
                   strokeWidth={1.5}
                   className="transition-transform duration-200 group-hover:translate-x-0.5"
