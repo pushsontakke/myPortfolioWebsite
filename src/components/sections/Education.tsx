@@ -120,12 +120,12 @@ export function Education() {
 
             {/* Progress, shown as text until the founder supplies the current values */}
             <div className="mb-5">
-              <div className="flex justify-between mb-2 text-[0.75rem] text-content-secondary">
+              {/* <div className="flex justify-between mb-2 text-[0.75rem] text-content-secondary">
                 <span>{certification.currentModule}</span>
                 <span className="font-mono text-accent">
                   {certification.progress}%
                 </span>
-              </div>
+              </div> */}
               {typeof certification.progress === "number" && (
                 <>
                   <div className="h-1.5 rounded-full overflow-hidden bg-surface-elevated/60">
