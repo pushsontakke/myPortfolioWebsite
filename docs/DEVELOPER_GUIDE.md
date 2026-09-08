@@ -206,7 +206,7 @@ The TypeScript alias `@/*` resolves to `src/*`. Prefer existing imports such as 
 | `sections/About.tsx` | Signal cards and editorial paragraphs; maps icon names to Lucide components. |
 | `sections/Skills.tsx` | Responsive skill-group grid, learning styles, optional badges; owns another icon map. |
 | `sections/Experience.tsx` | Timeline with one achievements panel expanded at a time. |
-| `sections/Projects.tsx` | Four current project cards, statuses, access labels, metrics, highlights, optional tags/architecture and CTA. |
+| `sections/Projects.tsx` | Three resume-backed project cards, statuses, access labels, metrics, highlights, optional tags/architecture and CTA. |
 | `sections/Services.tsx` | Five informational service cards and contact/business CTAs; inactive cards are visually dimmed. |
 | `sections/Education.tsx` | Degree and certification; progress UI is conditional on a numeric progress value. |
 | `sections/Contact.tsx` | Recruiter/freelance information, email and résumé links, static statistics. Form markup is commented out. |
@@ -344,7 +344,7 @@ Do not add fabricated client names, testimonials, performance figures, or comple
 1. Edit `EXPERIENCES` or `EDUCATION`; retain existing field shapes.
 2. Confirm dates, achievements, current status, and any numbers with the owner.
 3. An experience `location` of `undefined` hides that line. Review expand/collapse behavior after changing achievement length.
-4. Certification `progress` is currently the placeholder string `[X]`, so progress graphics are not shown. A number enables them; keep percentage/module data factual and consistent.
+4. Certification `progress` is currently `null`, so progress graphics are not shown. A verified number enables them; keep percentage/module data factual and consistent.
 5. Some progress/module text is commented out in the component. Changing data alone will not enable that text.
 
 ### Replace the résumé or add an image
@@ -463,11 +463,8 @@ These are source-review observations, **not fixes made by this documentation tas
 | Contact form | Commented-out unfinished markup; no submission handler, email service, or backend. |
 | Booking CTA | “Book a Call” opens an email link, not a scheduling service. |
 | Footer Skills link | `FOOTER_LINKS` uses `#Skills`, but the section ID is `skills`. |
-| Project content | DocChase and AgentAudit contain placeholder status text; confirm actual states. |
-| Experience content | Some achievements contain unresolved status alternatives; obtain factual wording. |
-| Project destination | The Ticketing CTA points to a GitHub profile, not a specific repository. |
-| Metrics | Hero/contact refer to five products while four project cards are listed. Confirm whether that is intentional; do not infer a new number. |
-| Certification | `[X]` progress is a placeholder; numeric progress UI is not currently displayed. |
+| Project destinations | The three project cards do not currently expose public project URLs. |
+| Certification | The resume does not provide numeric progress, so the progress UI is not currently displayed. |
 | Testimonials | Unmounted skeletons, not real endorsements. |
 | Theme scaffolding | Custom theme store is active; `next-themes` provider is unused. No system mode and no guaranteed cross-tab DOM update. |
 | Counters | Counter hook is unused; displayed metrics are static. |

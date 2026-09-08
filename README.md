@@ -103,7 +103,7 @@ On Node **v24.15.0** and npm **12.0.2**:
 - Production build: **passed**; `/` and the framework-generated not-found page were prerendered.
 - Clean dependency installation, browser/device testing, live links, DNS, and a real Vercel deployment: **not performed**.
 
-A successful build does not validate placeholder content, external destinations, accessibility, or message delivery. See the documented [known limitations](docs/DEVELOPER_GUIDE.md#known-limitations-and-owner-decisions).
+A successful build does not validate public content, external destinations, accessibility, or message delivery. See the documented [known limitations](docs/DEVELOPER_GUIDE.md#known-limitations-and-owner-decisions).
 
 ## Working agreement and historical material
 
