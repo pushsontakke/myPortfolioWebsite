@@ -1,205 +1,113 @@
 # Piyush Sontakke | Portfolio Website
 
+A personal portfolio for presenting engineering experience, projects, skills, and services to recruiters and prospective clients. Built with Next.js App Router, React, TypeScript, Tailwind CSS, and Motion.
 
+## Start here
 
-> **Started:** 02-01-2023 — Designing started.
+| You want to… | Read |
+| --- | --- |
+| Install the project and understand the frontend | [Developer handover](docs/DEVELOPER_GUIDE.md) |
+| Update content, components, styles, or assets | [Maintenance recipes](docs/DEVELOPER_GUIDE.md#maintenance-recipes) |
+| Check a change before handing it over | [Validation and definition of done](docs/DEVELOPER_GUIDE.md#validation-and-definition-of-done) |
+| Deploy, configure a domain, or recover a release | [Vercel deployment guide](docs/VERCEL_DEPLOYMENT.md) |
+| Understand incomplete features and existing issues | [Known limitations](docs/DEVELOPER_GUIDE.md#known-limitations-and-owner-decisions) |
 
----
+**Documentation reviewed:** 8 September 2026. The guides describe the current implementation, not a proposed rebuild. They distinguish repository facts from Vercel settings that must be confirmed by the project owner.
 
+## Quick start
 
-Personal portfolio website built to showcase my work as a Product Engineer, targeting both technical recruiters and freelance clients.
+Obtain the repository from the owner and open its root directory—the folder containing `package.json`. Do not generate a new Next.js app over this project.
 
-**Live:** [portfolio.elixirflow.in](https://portfolio.elixirflow.in)
-
----
-
-## Tech Stack
-
-| Layer | Technology | Version |
-|---|---|---|
-| Framework | Next.js (App Router) | 16 |
-| Language | TypeScript (strict) | 5 |
-| Styling | Tailwind CSS | 4 |
-| Animation | Motion (framer-motion rebrand) | 12 |
-| Icons | lucide-react | latest |
-| Utilities | clsx + tailwind-merge | latest |
-| Fonts | Syne, Inter, JetBrains Mono (via next/font) | — |
-| Deployment | Vercel | — |
-| DNS | Cloudflare | — |
-| React Compiler | Enabled | — |
-
-**Production dependencies:** 7 total (next, react, react-dom, motion, lucide-react, clsx, tailwind-merge)
-
----
-
-## Project Architecture
+**Recommended runtime:** Node.js **24.x LTS**, with npm. Next.js 16.2.1 requires at least Node **20.9.0**, but that minimum is not a recommendation to use an older, unsupported runtime. This repository does not currently pin Node or npm versions.
 
 ```bash
-src/
-├── app/
-│   ├── layout.tsx              # Root layout — fonts, metadata
-│   ├── page.tsx                # Home page — assembles all sections
-│   └── globals.css             # Tailwind v4 design tokens + reusable CSS
-├── components/
-│   ├── layout/
-│   │   ├── Sidebar.tsx         # Fixed left nav (desktop) + mobile pill nav
-│   │   ├── Footer.tsx          # Site footer (server component)
-│   │   └── ScrollToTop.tsx     # Floating scroll-to-top button
-│   ├── sections/
-│   │   ├── Hero.tsx            # Aurora background, role rotation, CTAs
-│   │   ├── About.tsx           # Editorial layout, signal chips
-│   │   ├── Skills.tsx          # Bento grid, terminal aesthetic
-│   │   ├── Experience.tsx      # Timeline, 2 roles, expandable achievements
-│   │   ├── Projects.tsx        # Tilt cards, Gyfton + Ticketing Platform
-│   │   ├── Services.tsx        # 5 service offerings, active/inactive states
-│   │   ├── Testimonials.tsx    # Skeleton placeholder with shimmer
-│   │   ├── Education.tsx       # Degree + certification with progress bar
-│   │   └── Contact.tsx         # Dual-path: recruiters + freelance form
-│   └── ui/
-│       ├── CursorGlow.tsx      # Mouse-follow glow effect (desktop)
-│       ├── SectionHeader.tsx   # Reusable section tag + heading + watermark
-│       ├── StatusBadge.tsx     # Colored dot + label (Available, In Progress)
-│       ├── SkillTag.tsx        # Tech/skill pill with learning state
-│       ├── AnimatedCounter.tsx # Count-up animation hook
-│       └── TiltCard.tsx        # 3D tilt with mouse-follow glow
-└── lib/
-├── constants.ts            # ALL site data — single source of truth
-├── utils.ts                # cn() class merge helper
-└── hooks/
-└── useInView.ts        # Intersection observer (fires once)
-```
-
----
-
-## Design System
-
-### Colors (defined in globals.css via @theme inline)
-
-| Token | Value | Usage |
-|---|---|---|
-| `surface` | `#0A0A0F` | Primary background |
-| `surface-alt` | `#111116` | Alternating section background |
-| `surface-card` | `#16161E` | Card backgrounds |
-| `content` | `#F8F8FF` | Primary text |
-| `content-secondary` | `#94A3B8` | Body text |
-| `content-muted` | `#64748B` | Subtle text |
-| `accent` | `#EAB308` | Primary accent (yellow) |
-| `status-success` | `#10B981` | Available, completed |
-| `status-warning` | `#F97316` | In progress, caution |
-| `status-error` | `#EF4444` | Error states |
-
-### Fonts
-
-| Font | Usage | CSS Variable |
-|---|---|---|
-| Syne | Display headings | `--font-syne` |
-| Inter | Body text | `--font-inter` |
-| JetBrains Mono | Code, labels, tags | `--font-jetbrains` |
-
-### Reusable CSS Classes
-
-| Class | Usage |
-|---|---|
-| `.noise-overlay` | Subtle noise texture via ::after pseudo-element |
-| `.dot-grid` | Dot pattern background via ::before |
-| `.section-divider` | Gradient line at section top via ::before |
-| `.glass` | Glass morphism (blur + border + translucent bg) |
-
----
-
-## Key Design Decisions
-
-1. **Single source of truth** — All text, URLs, and data live in `constants.ts`. Components import what they need. Change data in one place.
-
-2. **Server components by default** — Only components that need interactivity (hooks, event listeners) use `"use client"`. Footer is a server component. This minimizes client-side JavaScript.
-
-3. **Tailwind v4 CSS-based tokens** — No `tailwind.config.ts`. All design tokens defined in `globals.css` via `@theme inline`. Colors, fonts, shadows, and animations are all registered as Tailwind utilities.
-
-4. **DRY reusable components** — `SectionHeader`, `StatusBadge`, `SkillTag`, `TiltCard` are used across 3-9 sections each, eliminating duplicated code.
-
-5. **`next/font` for font loading** — Fonts are downloaded at build time, self-hosted, and applied via CSS variables. No runtime Google Fonts requests, no CLS.
-
-6. **Motion v12 over framer-motion** — Same API, ~30% lighter bundle, actively maintained. Import path: `motion/react`.
-
-7. **Yellow accent (`#EAB308`)** — Chosen over the original purple for brand differentiation. Warning color shifted to orange (`#F97316`) to avoid clashing.
-
-8. **Progressive enhancement** — CursorGlow is desktop-only (`hidden lg:block`). Mobile gets the same content without the glow. Animations are scroll-triggered and fire once.
-
----
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js 18+
-- npm or pnpm
-
-### Setup
-```bash
-git clone <your-repo-url>
-cd my_portfolio_website
-npm install
+node --version
+npm --version
+npm ci
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3000](http://localhost:3000). Stop the server with `Ctrl+C`.
 
-### Build
+- Use **npm**: this repository includes `package-lock.json`.
+- `npm ci` installs the locked dependency versions and replaces an existing `node_modules` directory; it does not upgrade the lockfile.
+- No environment variables, database, API keys, or backend services are required by the current application.
+- Installation and the first build need network access. `next/font/google` downloads fonts during the build and serves them with the app afterward.
+
+## Commands
+
+Run these from the repository root:
+
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the development server with hot updates |
+| `npm run dev -- --port 3001` | Use another development port |
+| `npm run lint` | Run ESLint against `src` |
+| `npx next typegen && npx tsc --noEmit --incremental false` | Generate route types and run a standalone TypeScript check |
+| `npm run build` | Create the production build |
+| `npm start` | Serve a successful production build locally |
+
+Next.js 16 uses Turbopack by default. **`next build` does not run ESLint**; lint must be a separate check. There is no `npm test`, `npm run typecheck`, or deployment script configured.
+
+## Technology snapshot
+
+Versions below are the locked versions reviewed for this handover, not instructions to upgrade packages.
+
+| Technology | Version / implementation |
+| --- | --- |
+| Next.js | 16.2.1, App Router |
+| React / React DOM | 19.2.4 |
+| TypeScript | 5.9.3, strict mode |
+| Tailwind CSS | 4.3.3, CSS-based theme configuration |
+| Motion | 12.43.0, imports from `motion/react` |
+| Lucide React | 0.577.0 |
+| ESLint | 9.39.5, Next.js Core Web Vitals and TypeScript presets |
+| React Compiler | Enabled in `next.config.ts` |
+| Fonts | Syne, Inter, JetBrains Mono through `next/font/google` |
+| Package manager | npm, lockfile version 3 |
+| Deployment target | Native Next.js support on Vercel |
+
+`next-themes` and `@vercel/speed-insights` are installed, but neither powers a mounted integration in the current app. The active theme system is custom code in `src/lib/theme.ts`.
+
+## Frontend at a glance
+
+- **One application page:** `src/app/page.tsx` assembles the `/` route.
+- **Sections:** Hero → About → Skills → Experience → Projects → Services → Education → Contact, followed by Footer.
+- **Shared layout:** desktop sidebar, mobile navigation, cursor glow, and scroll-to-top control.
+- **Content:** most structured data lives in `src/lib/constants.ts`; some visible copy and metadata are still hardcoded in components.
+- **Styling:** `src/app/globals.css` contains Tailwind v4 tokens, light/dark palettes, and reusable effects.
+- **Theme:** saved light/dark preference; JavaScript defaults to **dark** when no valid preference exists. There is no active system-theme mode.
+- **Contact:** email links and résumé download. The form is commented-out scaffolding; it does not send messages.
+- **Not active:** testimonials, the `next-themes` provider, and the animated-counter hook.
+
+## Before deployment
+
 ```bash
+npm run lint
+npx next typegen && npx tsc --noEmit --incremental false
 npm run build
-npm start
 ```
 
----
+Then follow the manual checks in the [developer guide](docs/DEVELOPER_GUIDE.md#validation-and-definition-of-done) and the [Vercel runbook](docs/VERCEL_DEPLOYMENT.md).
 
-## Deployment
+Use Vercel's **Next.js** preset, the **repository root**, `npm ci`, and `npm run build`; leave the output directory on its framework default. Do not upload `public/` as the whole application or configure `npm start` as a build command.
 
-- **Platform:** Vercel
-- **Domain:** `portfolio.elixirflow.in` (subdomain via Cloudflare CNAME → `cname.vercel-dns.com`, proxy OFF)
-- **Auto-deploy:** Push to `main` branch triggers Vercel deployment
+The repository context identifies `master` as the main branch and `development` as the working branch. **Confirm the actual Production Branch in Vercel** rather than assuming `main`, `master`, or the checked-out branch is already configured there.
 
----
+## Verification recorded for this handover
 
-## Data Updates
+On Node **v24.15.0** and npm **12.0.2**:
 
-All site content is in `src/lib/constants.ts`. To update:
+- ESLint: **passed**.
+- Route-type generation and TypeScript: **passed**.
+- Production build: **passed**; `/` and the framework-generated not-found page were prerendered.
+- Clean dependency installation, browser/device testing, live links, DNS, and a real Vercel deployment: **not performed**.
 
-- **Personal info** → `SITE` object
-- **Skills** → `SKILL_GROUPS` array
-- **Experience** → `EXPERIENCES` array
-- **Projects** → `PROJECTS` array
-- **Education** → `EDUCATION` object
-- **Services** → `SERVICES` array
+A successful build does not validate placeholder content, external destinations, accessibility, or message delivery. See the documented [known limitations](docs/DEVELOPER_GUIDE.md#known-limitations-and-owner-decisions).
 
-No component changes needed for content updates.
+## Working agreement and historical material
 
----
-
-## Bundle Optimization
-
-- 7 production dependencies (vs. 50+ in the original Figma Make export)
-- Server components where possible (Footer)
-- Tree-shakeable icon imports (lucide-react)
-- `next/font` eliminates external font requests
-- React Compiler enabled for automatic memoization
-- `will-change-transform` only on GPU-intensive elements (CursorGlow)
-
----
-
-## Recent Updates
-
-- Added a reusable light/dark theme toggle while keeping light mode as the default.
-- Persisted theme preference in `localStorage` using the `portfolio-theme` key.
-- Improved dark-theme watermark visibility so background section text is easier to notice on normal displays.
-
----
-
-## Future Improvements
-
-- [ ] Form backend integration (Formspree or Next.js Server Action)
-- [ ] Real testimonials replacing skeleton placeholders
-- [ ] Case study pages for projects (dynamic routes)
-- [ ] Blog section at `blog.elixirflow.in`
-- [ ] Analytics (Vercel Analytics or Plausible)
-- [ ] Open Graph images for social sharing
-- [ ] Lighthouse performance audit and optimization
+- `CLAUDE.md` and `AGENTS.md` contain project-specific instructions. Read them before using an assistant on this repository.
+- The project owner handles Git operations. This documentation task does not stage, commit, merge, or push anything.
+- Before implementing Next.js changes, consult the relevant installed guide under `node_modules/next/dist/docs/`; this project uses Next.js 16 conventions.
+- Existing Word documents under `docs/Guide/`, plus `PLAN.md` and `REPORT.md`, remain untouched. Treat historical implementation notes as context, not as a substitute for the current code and these onboarding guides.
