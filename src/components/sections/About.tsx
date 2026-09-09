@@ -34,9 +34,9 @@ export function About() {
                 tag="// about me"
                 title={
                   <>
-                    I don&apos;t just
+                    I don&apos;t just{" "}
                     <br />
-                    write code.
+                    write code.{" "}
                     <br />
                     <span className="text-accent">I own products.</span>
                   </>

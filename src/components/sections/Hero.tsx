@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Github, Linkedin, Mail, ChevronDown, Download, ArrowUpRight } from "lucide-react";
 import { StatusBadge } from "@/components/ui/StatusBadge";
@@ -114,7 +114,7 @@ export function Hero() {
                   lineHeight: 1.0,
                 }}
               >
-                Piyush
+                Piyush{" "}
                 <br />
                 <span className="relative">
                   Sontakke
@@ -160,22 +160,23 @@ export function Hero() {
               <span className="sr-only">{HERO_HEADLINE}</span>
               <div className="flex flex-wrap gap-x-2.5 gap-y-1" aria-hidden="true">
                 {HERO_HEADLINE_WORDS.map((word, i) => (
-                  <motion.span
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: 0.5 + i * 0.06 }}
-                    className="font-display font-semibold"
-                    style={{
-                      fontSize: "clamp(1.1rem, 2vw, 1.5rem)",
-                      color:
-                        word === "ships,"
-                          ? "var(--color-accent)"
-                          : "var(--color-content)",
-                    }}
-                  >
-                    {word}
-                  </motion.span>
+                  <Fragment key={`${word}-${i}`}>
+                    <motion.span
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.5 + i * 0.06 }}
+                      className="font-display font-semibold"
+                      style={{
+                        fontSize: "clamp(1.1rem, 2vw, 1.5rem)",
+                        color:
+                          word === "ships,"
+                            ? "var(--color-accent)"
+                            : "var(--color-content)",
+                      }}
+                    >
+                      {word}
+                    </motion.span>{" "}
+                  </Fragment>
                 ))}
               </div>
             </div>
