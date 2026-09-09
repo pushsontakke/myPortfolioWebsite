@@ -285,9 +285,11 @@ body {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
+  left: 50%;
+  width: calc(100% - 3rem);
+  max-width: 72rem;
   height: 1px;
+  transform: translateX(-50%);
   background: linear-gradient(90deg, transparent, var(--section-divider), transparent);
 }
 
