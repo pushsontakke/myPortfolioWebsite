@@ -1,5 +1,6 @@
 
 // Assembles the layout shell, importing the site sections and shared effects.
+import type { Metadata } from "next";
 import { CursorGlow } from "@/components/ui/CursorGlow";
 import { Sidebar } from "@/components/layout/Sidebar";
 
@@ -14,6 +15,45 @@ import { Projects } from "@/components/sections/Projects";
 import { Education } from "@/components/sections/Education";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/layout/Footer";
+import {
+  IS_INDEXABLE_DEPLOYMENT,
+  PRODUCTION_ORIGIN,
+  SEO_DESCRIPTION,
+  SEO_TITLE,
+  SOCIAL_IMAGE,
+} from "@/lib/seo";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(PRODUCTION_ORIGIN),
+  title: SEO_TITLE,
+  description: SEO_DESCRIPTION,
+  robots: IS_INDEXABLE_DEPLOYMENT
+    ? undefined
+    : { index: false, follow: false, noarchive: true },
+  alternates: {
+    canonical: "/",
+  },
+  icons: {
+    icon: SOCIAL_IMAGE.url,
+    apple: SOCIAL_IMAGE.url,
+  },
+  openGraph: {
+    type: "profile",
+    url: "/",
+    title: SEO_TITLE,
+    description: SEO_DESCRIPTION,
+    siteName: "Piyush Sontakke Portfolio",
+    locale: "en_IN",
+    images: [SOCIAL_IMAGE],
+  },
+  twitter: {
+    card: "summary",
+    title: SEO_TITLE,
+    description: SEO_DESCRIPTION,
+    images: [SOCIAL_IMAGE.url],
+    creator: "@PiyushSontakke4",
+  },
+};
 
 export default function Home() {
   return (

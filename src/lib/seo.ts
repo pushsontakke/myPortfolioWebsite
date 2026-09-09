@@ -1,5 +1,9 @@
 export const PRODUCTION_ORIGIN = "https://portfolio.elixirflow.in";
 
+export const IS_INDEXABLE_DEPLOYMENT =
+  process.env.VERCEL_ENV !== "preview" &&
+  process.env.VERCEL_ENV !== "development";
+
 export const SEO_TITLE = "Piyush Sontakke | Full-Stack & AI Engineer";
 
 export const SEO_DESCRIPTION =
