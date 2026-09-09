@@ -95,7 +95,7 @@ export function Projects() {
                     ))}
                   </div>
 
-                  {/* Architecture block (Ticketing Platform only) */}
+                  {/* Optional architecture details */}
                   {"architecture" in project && project.architecture && (
                     <div className="p-4 rounded-xl bg-surface/80 border border-border-subtle mb-6">
                       <div className="flex items-center gap-1.5 mb-3">
@@ -172,7 +172,7 @@ export function Projects() {
                     </div>
                   )}
 
-                  {/* Tags (Ticketing Platform only) */}
+                  {/* Optional project tags */}
                   {"tags" in project && project.tags && project.tags.length > 0 && (
                     <div className="flex flex-wrap gap-2 mb-6">
                       {project.tags.map((tag) => (

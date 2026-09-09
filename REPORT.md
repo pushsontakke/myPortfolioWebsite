@@ -10,12 +10,12 @@
   and navigation entry.
 - Kept the original dark palette as the default while wiring the existing theme
   button to a light palette through shared CSS tokens.
-- Added ElixirFlow above ended Hushbox experience and added DocChase and
+- Added ElixirFlow above the earlier anonymized contract experience and added DocChase and
   AgentAudit project cards.
 - Updated titles, dates, counters, copy hygiene, brand spelling, and hero
   copied-text accessibility fallback.
-- Kept the GenAI progress and product statuses as explicit founder-input
-  placeholders where the supplied facts were unfilled.
+- Replaced the unverified GenAI progress and project-status placeholders with
+  neutral resume-backed presentation.
 
 ## Verification completed
 
@@ -33,6 +33,5 @@
 
 ## Founder input still required
 
-- Replace `[live / beta / in development]` for DocChase and AgentAudit.
-- Replace `no public URL` if either product has a public URL.
-- Replace GenAI `Module [N] of 4 ([X]%)` with current values.
+- Add public URLs if DocChase or AgentAudit receives an approved destination.
+- Add certification progress only when verified current values are available.

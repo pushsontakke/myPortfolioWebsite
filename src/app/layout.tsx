@@ -20,7 +20,8 @@ const jetBrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Portfolio | Piyush Sontakke",
-  description: "Full-Stack Developer building products and sites.",
+  description:
+    "Full-Stack Engineer building Python/Django, React/Next.js, and agentic AI applications.",
 };
 
 export default function RootLayout({
