@@ -10,7 +10,6 @@
 // - `SKILL_GROUPS`: grouped skills with icons and learning flags
 // - `EXPERIENCES`: role history and evidence
 // - `PROJECTS`: project cards and their evidence
-// - `SERVICES`: service offerings
 // - `EDUCATION`: degree and certification
 // - `CONTACT_STATS`, `FOOTER_LINKS`
 
@@ -38,17 +37,6 @@ export const SITE = {
     linkedin: "https://linkedin.com/in/piyush-sontakke",
     twitter: "https://x.com/PiyushSontakke4",
   },
-  business: {
-    name: "ElixirFlow",
-    url: "https://elixirflow.in",
-    heroEyebrow: "Founder-led business",
-    heroDescription:
-      "See the business website behind my product engineering and delivery work.",
-    heroCta: "Visit ElixirFlow",
-    servicesDescription:
-      "ElixirFlow is the business layer behind this founder-style product engineering offer.",
-    servicesCta: "Explore business website",
-  },
   resume: "/Piyush_Sontakke_Resume.pdf",
 } as const;
 
@@ -60,16 +48,20 @@ export const NAV_ITEMS = [
   { id: "skills", label: "Skills", num: "03" },
   { id: "experience", label: "Experience", num: "04" },
   { id: "projects", label: "Projects", num: "05" },
-  { id: "services", label: "Services", num: "06" },
-  // { id: "testimonials", label: "Testimonials", num: "07" },
-  { id: "education", label: "Education", num: "07" },
-  { id: "contact", label: "Contact", num: "08" },
+  // { id: "testimonials", label: "Testimonials", num: "06" },
+  { id: "education", label: "Education", num: "06" },
+  { id: "contact", label: "Contact", num: "07" },
 ] as const;
 
 // ── Hero Section ──
 
 export const HERO_ROLES = [
   "Full-Stack Engineer",
+  "Python / Django Engineer",
+  "Backend Engineer",
+  "React / Next.js Engineer",
+  "AI / LLM Application Engineer",
+  "Product Engineer",
 ] as const;
 
 export const HERO_HEADLINE_WORDS = [
@@ -302,41 +294,6 @@ export const PROJECTS: readonly Project[] = [
   },
 ];
 
-// ── Services Section ──
-
-export const SERVICES = [
-  {
-    icon: "Rocket",
-    title: "MVP Development (0→1)",
-    desc: "Django and React product builds from design to deployment.",
-    active: true,
-  },
-  {
-    icon: "Brain",
-    title: "AI Feature Integration",
-    desc: "LLM and agent system work informed by current certification study.",
-    active: true,
-  },
-  {
-    icon: "Globe",
-    title: "Next.js Web Applications",
-    desc: "Marketing, demo, and client sites in Next.js and React.",
-    active: true,
-  },
-  {
-    icon: "LayoutDashboard",
-    title: "SaaS Dashboards & Internal Tools",
-    desc: "Django and React product workflows.",
-    active: true,
-  },
-  {
-    icon: "Gauge",
-    title: "Performance & Architecture Consulting",
-    desc: "Production-readiness audits for LLM and agent systems.",
-    active: true,
-  },
-] as const;
-
 // ── Education Section ──
 
 export const EDUCATION = {
@@ -375,8 +332,8 @@ export const EDUCATION = {
 export const CONTACT_ROLES =
   "Full-Stack Engineer · Python/Django · React/Next.js · Agentic AI";
 
-export const CONTACT_SERVICES =
-  "End-to-end web applications · Integration-heavy backends · LLM and agent system audits";
+export const CONTACT_AVAILABILITY =
+  "Based in Pune, India. Open to relocation to Bengaluru, Mumbai, or NCR, as well as remote opportunities. UTC+5:30 with comfortable UK/EU overlap.";
 
 export const CONTACT_STATS = [
   { value: "2+", label: "Years in Production" },
@@ -389,7 +346,6 @@ export const CONTACT_STATS = [
 export const FOOTER_LINKS = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#Skills" },
-  // { label: "Services", href: "#services" },
   { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ] as const;

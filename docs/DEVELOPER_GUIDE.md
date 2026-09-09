@@ -149,7 +149,7 @@ Keep this distinction when making changes:
 
 There are no separate `/about` or `/projects` pages. Navigation targets element IDs on `/`:
 
-`hero`, `about`, `skills`, `experience`, `projects`, `services`, `education`, `contact`.
+`hero`, `about`, `skills`, `experience`, `projects`, `education`, `contact`.
 
 `NAV_ITEMS` must match those IDs and the rendered section order. The Sidebar uses scroll-aware state, updates the fragment through `history.replaceState`, and handles recognized incoming fragments after mount. IDs are case-sensitive: `#Skills` and `#skills` are not interchangeable.
 
@@ -202,14 +202,13 @@ The TypeScript alias `@/*` resolves to `src/*`. Prefer existing imports such as 
 | `layout/Sidebar.tsx` | Desktop sidebar, mobile menu, navigation state, social links, theme controls. Keep section IDs and desktop width synchronized with the page. |
 | `layout/Footer.tsx` | Identity, tagline, links, social icons, current-year copyright. Footer links have their own data array. |
 | `layout/ScrollToTop.tsx` | Shows after scrolling more than 600px and scrolls back to the top. |
-| `sections/Hero.tsx` | Identity, headline, role text, résumé/contact CTAs, social links, static metrics, business link, decorative motion. Some identity text is hardcoded. |
+| `sections/Hero.tsx` | Identity, rotating role text, headline, résumé/contact CTAs, social links, static metrics, and decorative motion. Some identity text is hardcoded. |
 | `sections/About.tsx` | Signal cards and editorial paragraphs; maps icon names to Lucide components. |
 | `sections/Skills.tsx` | Responsive skill-group grid, learning styles, optional badges; owns another icon map. |
 | `sections/Experience.tsx` | Timeline with one achievements panel expanded at a time. |
 | `sections/Projects.tsx` | Three resume-backed project cards, statuses, access labels, metrics, highlights, optional tags/architecture and CTA. |
-| `sections/Services.tsx` | Five informational service cards and contact/business CTAs; inactive cards are visually dimmed. |
 | `sections/Education.tsx` | Degree and certification; progress UI is conditional on a numeric progress value. |
-| `sections/Contact.tsx` | Recruiter/freelance information, email and résumé links, static statistics. Form markup is commented out. |
+| `sections/Contact.tsx` | Professional availability, location, email and résumé links, and static statistics. Form markup is commented out. |
 | `sections/Testimonials.tsx` | Unmounted skeleton placeholder, not published testimonials. Its page import/render and nav entry are disabled. |
 
 ### Shared helpers
@@ -240,9 +239,8 @@ The TypeScript alias `@/*` resolves to `src/*`. Prefer existing imports such as 
 | `SKILL_GROUPS` | Skill groups, icon keys, skills, layout span classes, badges |
 | `EXPERIENCES` | Roles, locations, achievements |
 | `PROJECTS` | Project card data |
-| `SERVICES` | Service card content and active state |
 | `EDUCATION` | Degree and certification data |
-| `CONTACT_ROLES`, `CONTACT_SERVICES`, `CONTACT_STATS` | Contact-section lists and metrics |
+| `CONTACT_ROLES`, `CONTACT_AVAILABILITY`, `CONTACT_STATS` | Contact-section availability and metrics |
 | `FOOTER_LINKS` | Footer anchor links |
 
 Important exceptions:
@@ -296,7 +294,7 @@ A default-theme change must consider the fallback constant, boot script behavior
 
 Motion imports use `motion/react`. Most section entrances are driven by `useInView`, while menus and expandable panels use local state/`AnimatePresence`.
 
-- The hero's role-rotation timer is desktop-only and respects reduced motion, but `HERO_ROLES` currently has one entry, so there is no visible rotation between roles.
+- The hero rotates through the resume-backed `HERO_ROLES` on all viewport sizes unless the visitor prefers reduced motion.
 - Cursor glow requires a desktop-sized viewport, a fine pointer, and no reduced-motion preference.
 - Below 1024px, CSS removes glass blur, disables aurora animation, and hides extra aurora/noise layers.
 - Reduced-motion support is **partial**. Tilt, other entrance effects, some CSS animations, and smooth scrolling still need review.
@@ -330,14 +328,12 @@ Each recipe assumes an approved change. Keep unrelated refactors out of the same
 
 Do not add fabricated client names, testimonials, performance figures, or completion claims to make a card look finished.
 
-### Add skills, signals, or services
+### Add skills or signals
 
 - Add skills to `SKILL_GROUPS`. A skill may be a string or `{ name, learning?: boolean }`.
 - A group's `span` contains literal Tailwind classes; do not construct utility names from arbitrary runtime fragments.
-- Icon keys must match the relevant component's `iconMap`: Skills, About, and Services each maintain their own map. Import/register a new Lucide icon there before using its key.
+- Icon keys must match the relevant component's `iconMap`: Skills and About each maintain their own map. Import/register a new Lucide icon there before using its key.
 - Unknown icons can break rendering in About/Skills because those lookups are rendered without an undefined guard.
-- In Services, `active: false` dims a card; an inactive **last** card also gets special two-column spanning at `md`. Reordering cards can change that layout.
-- Service cards are informational. The section CTA goes to contact; cards do not automatically gain individual service pages.
 
 ### Update experience or education
 

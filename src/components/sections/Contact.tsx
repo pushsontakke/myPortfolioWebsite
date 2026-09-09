@@ -7,7 +7,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import {
   SITE,
   CONTACT_ROLES,
-  CONTACT_SERVICES,
+  CONTACT_AVAILABILITY,
   CONTACT_STATS,
 } from "@/lib/constants";
 
@@ -88,7 +88,7 @@ export function Contact() {
             </div>
           </motion.div>
 
-          {/* ── Right — Freelance Form ── */}
+          {/* ── Right — Location and availability ── */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -96,10 +96,10 @@ export function Contact() {
             className="lg:pl-12"
           >
             <h3 className="font-display text-[1.4rem] font-bold text-content mb-2">
-              Have a project?
+              Location &amp; availability
             </h3>
             <p className="text-content-secondary text-[0.9rem] mb-6">
-              {CONTACT_SERVICES}
+              {CONTACT_AVAILABILITY}
             </p>
 
             {/* {submitted ? (

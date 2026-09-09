@@ -1,6 +1,6 @@
 # Piyush Sontakke | Portfolio Website
 
-A personal portfolio for presenting engineering experience, projects, skills, and services to recruiters and prospective clients. Built with Next.js App Router, React, TypeScript, Tailwind CSS, and Motion.
+A personal portfolio presenting engineering experience, projects, skills, and education. Built with Next.js App Router, React, TypeScript, Tailwind CSS, and Motion.
 
 ## Start here
 
@@ -72,7 +72,7 @@ Versions below are the locked versions reviewed for this handover, not instructi
 ## Frontend at a glance
 
 - **One application page:** `src/app/page.tsx` assembles the `/` route.
-- **Sections:** Hero → About → Skills → Experience → Projects → Services → Education → Contact, followed by Footer.
+- **Sections:** Hero → About → Skills → Experience → Projects → Education → Contact, followed by Footer.
 - **Shared layout:** desktop sidebar, mobile navigation, cursor glow, and scroll-to-top control.
 - **Content:** most structured data lives in `src/lib/constants.ts`; some visible copy and metadata are still hardcoded in components.
 - **Styling:** `src/app/globals.css` contains Tailwind v4 tokens, light/dark palettes, and reusable effects.

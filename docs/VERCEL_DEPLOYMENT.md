@@ -212,7 +212,7 @@ Run this on the **specific deployment** and, for a production release, on the **
 - [ ] Theme preference survives reload, including through the custom domain's separate browser storage.
 - [ ] Navigation and experience expand/collapse work; known fragment/accessibility issues are not concealed.
 - [ ] `/Piyush_Sontakke_Resume.pdf` loads and download links use the intended document.
-- [ ] Email, social, business, and project CTAs point to owner-approved destinations.
+- [ ] Email, social, and project CTAs point to owner-approved destinations.
 - [ ] Contact remains correctly presented as email-based—not a working form or calendar service.
 - [ ] Production HTTPS is valid and the hostname belongs to the correct project/environment.
 - [ ] No private test data or newly added credentials/assets have been published.
