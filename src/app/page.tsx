@@ -17,6 +17,7 @@ import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/layout/Footer";
 import {
   IS_INDEXABLE_DEPLOYMENT,
+  SERIALIZED_PORTFOLIO_JSON_LD,
   PRODUCTION_ORIGIN,
   SEO_DESCRIPTION,
   SEO_TITLE,
@@ -58,6 +59,10 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="min-h-screen relative overflow-x-hidden noise-overlay">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: SERIALIZED_PORTFOLIO_JSON_LD }}
+      />
       <CursorGlow />
       <Sidebar />
       <ScrollToTop />
