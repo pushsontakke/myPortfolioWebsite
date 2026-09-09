@@ -271,6 +271,37 @@ export function Hero() {
                   </div>
                 </motion.div>
               ))}
+              <motion.a
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 1.3 }}
+                href={SITE.studio.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group col-span-2 min-w-0 rounded-2xl glass p-4 transition-all duration-300 hover:-translate-y-1 sm:p-5"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div className="min-w-0">
+                    <p className="text-[0.65rem] uppercase tracking-[0.24em] text-content-faint">
+                      {SITE.studio.eyebrow}
+                    </p>
+                    <p className="mt-1 font-display text-[1.35rem] font-semibold text-content">
+                      {SITE.studio.name}
+                    </p>
+                    <p className="mt-1.5 max-w-sm text-[0.88rem] leading-relaxed text-content-secondary">
+                      {SITE.studio.description}
+                    </p>
+                    <span className="mt-3 inline-flex items-center gap-1.5 text-[0.84rem] font-semibold text-accent">
+                      {SITE.studio.cta}
+                      <ArrowUpRight
+                        size={15}
+                        strokeWidth={1.6}
+                        className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                      />
+                    </span>
+                  </div>
+                </div>
+              </motion.a>
             </div>
           </motion.div>
         </div>
