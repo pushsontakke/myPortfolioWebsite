@@ -38,7 +38,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden bg-surface">
       {/* ── Aurora Background ── */}
       <div className="absolute inset-0 z-0">
         <div
