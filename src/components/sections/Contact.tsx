@@ -36,7 +36,7 @@ export function Contact() {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-0">
-          {/* ── Left — Recruiters ── */}
+          {/* Left: recruiter contact details */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -65,7 +65,7 @@ export function Contact() {
                   className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border-strong text-content-secondary text-[0.85rem] bg-surface-card/30 transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5 cursor-pointer"
                 >
                   <Calendar size={15} strokeWidth={1.5} />
-                  Book a Call
+                  Request a Call
                 </a>
               </div>
             </div>
@@ -88,7 +88,7 @@ export function Contact() {
             </div>
           </motion.div>
 
-          {/* ── Right — Location and availability ── */}
+          {/* Right: location and availability */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -202,7 +202,7 @@ export function Contact() {
             <div className="mt-5 flex items-center gap-2 text-label text-content-muted">
               <Mail size={14} strokeWidth={1.5} />
               {/* <span>Or email directly: </span> */}
-              <span>email: </span>
+              <span>Email: </span>
               <a
                 href={`mailto:${SITE.email}`}
                 className="text-accent transition-colors duration-200 hover:underline"

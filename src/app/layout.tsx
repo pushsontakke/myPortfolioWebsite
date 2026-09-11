@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Syne, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { themeInitializationScript } from "@/lib/theme";
@@ -17,12 +16,6 @@ const jetBrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains",
   subsets: ["latin"],
 });
-
-export const metadata: Metadata = {
-  title: "Portfolio | Piyush Sontakke",
-  description:
-    "Full-Stack Engineer building Python/Django, React/Next.js, and agentic AI applications.",
-};
 
 export default function RootLayout({
   children,

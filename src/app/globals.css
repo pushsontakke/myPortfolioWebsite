@@ -6,6 +6,8 @@
   --color-surface-alt: var(--surface-alt);
   --color-surface-card: var(--surface-card);
   --color-surface-elevated: var(--surface-elevated);
+  --color-section-light: var(--section-light);
+  --color-section-warm: var(--section-warm);
 
   --color-content: var(--content);
   --color-content-secondary: var(--content-secondary);
@@ -61,6 +63,8 @@
   --surface-alt: #fff4e1;
   --surface-card: #ffffff;
   --surface-elevated: #f6ead7;
+  --section-light: #fffcf6;
+  --section-warm: #fff4e1;
 
   --content: #1f2937;
   --content-secondary: #4b5563;
@@ -121,6 +125,8 @@ html[data-theme="dark"] {
   --surface-alt: #111116;
   --surface-card: #16161e;
   --surface-elevated: #1e1e2e;
+  --section-light: #0d0d13;
+  --section-warm: #111116;
 
   --content: #f8f8ff;
   --content-secondary: #94a3b8;
@@ -285,9 +291,11 @@ body {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
+  left: 50%;
+  width: calc(100% - 3rem);
+  max-width: 72rem;
   height: 1px;
+  transform: translateX(-50%);
   background: linear-gradient(90deg, transparent, var(--section-divider), transparent);
 }
 

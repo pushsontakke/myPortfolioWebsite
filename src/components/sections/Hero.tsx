@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Github, Linkedin, Mail, ChevronDown, Download, ArrowUpRight } from "lucide-react";
 import { StatusBadge } from "@/components/ui/StatusBadge";
@@ -38,7 +38,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden bg-surface">
       {/* ── Aurora Background ── */}
       <div className="absolute inset-0 z-0">
         <div
@@ -114,7 +114,7 @@ export function Hero() {
                   lineHeight: 1.0,
                 }}
               >
-                Piyush
+                Piyush{" "}
                 <br />
                 <span className="relative">
                   Sontakke
@@ -160,22 +160,23 @@ export function Hero() {
               <span className="sr-only">{HERO_HEADLINE}</span>
               <div className="flex flex-wrap gap-x-2.5 gap-y-1" aria-hidden="true">
                 {HERO_HEADLINE_WORDS.map((word, i) => (
-                  <motion.span
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: 0.5 + i * 0.06 }}
-                    className="font-display font-semibold"
-                    style={{
-                      fontSize: "clamp(1.1rem, 2vw, 1.5rem)",
-                      color:
-                        word === "ships,"
-                          ? "var(--color-accent)"
-                          : "var(--color-content)",
-                    }}
-                  >
-                    {word}
-                  </motion.span>
+                  <Fragment key={`${word}-${i}`}>
+                    <motion.span
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.5 + i * 0.06 }}
+                      className="font-display font-semibold"
+                      style={{
+                        fontSize: "clamp(1.1rem, 2vw, 1.5rem)",
+                        color:
+                          word === "ships,"
+                            ? "var(--color-accent)"
+                            : "var(--color-content)",
+                      }}
+                    >
+                      {word}
+                    </motion.span>{" "}
+                  </Fragment>
                 ))}
               </div>
             </div>
@@ -271,6 +272,37 @@ export function Hero() {
                   </div>
                 </motion.div>
               ))}
+              <motion.a
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 1.3 }}
+                href={SITE.studio.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group col-span-2 min-w-0 rounded-2xl glass p-4 transition-all duration-300 hover:-translate-y-1 sm:p-5"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div className="min-w-0">
+                    <p className="text-[0.65rem] uppercase tracking-[0.24em] text-content-faint">
+                      {SITE.studio.eyebrow}
+                    </p>
+                    <p className="mt-1 font-display text-[1.35rem] font-semibold text-content">
+                      {SITE.studio.name}
+                    </p>
+                    <p className="mt-1.5 max-w-sm text-[0.88rem] leading-relaxed text-content-secondary">
+                      {SITE.studio.description}
+                    </p>
+                    <span className="mt-3 inline-flex items-center gap-1.5 text-[0.84rem] font-semibold text-accent">
+                      {SITE.studio.cta}
+                      <ArrowUpRight
+                        size={15}
+                        strokeWidth={1.6}
+                        className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                      />
+                    </span>
+                  </div>
+                </div>
+              </motion.a>
             </div>
           </motion.div>
         </div>

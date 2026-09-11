@@ -19,7 +19,7 @@ export function About() {
     <section
       id="about"
       ref={ref}
-      className="relative py-24 lg:py-36 overflow-hidden bg-surface-alt section-divider"
+      className="relative py-24 lg:py-36 overflow-hidden bg-section-light section-divider"
     >
       <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-[0.42fr_0.58fr] gap-12 lg:gap-20 items-start">
@@ -34,9 +34,9 @@ export function About() {
                 tag="// about me"
                 title={
                   <>
-                    I don&apos;t just
+                    I don&apos;t just{" "}
                     <br />
-                    write code.
+                    write code.{" "}
                     <br />
                     <span className="text-accent">I own products.</span>
                   </>

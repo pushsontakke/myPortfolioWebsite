@@ -37,6 +37,14 @@ export const SITE = {
     linkedin: "https://linkedin.com/in/piyush-sontakke",
     twitter: "https://x.com/PiyushSontakke4",
   },
+  studio: {
+    name: "ElixirFlow",
+    url: "https://elixirflow.in",
+    eyebrow: "Studio / Parent Brand",
+    description:
+      "ElixirFlow is my product engineering studio and the parent brand for the products I develop.",
+    cta: "Visit ElixirFlow",
+  },
   resume: "/Piyush_Sontakke_Resume.pdf",
 } as const;
 
@@ -65,10 +73,12 @@ export const HERO_ROLES = [
 ] as const;
 
 export const HERO_HEADLINE_WORDS = [
-  "Full-Stack", "Engineer", "who", "ships,", "not", "just", "codes",
+  "Full-Stack", "Engineer", "who", "builds,", "ships,", "and", "supports",
+  "web", "applications",
 ] as const;
 
-export const HERO_HEADLINE = "Full-Stack Engineer who ships, not just codes.";
+export const HERO_HEADLINE =
+  "Full-Stack Engineer who builds, ships, and supports web applications.";
 
 export const HERO_SUBTITLE =
   "Python · Django · React/Next.js · Agentic AI / LLM Applications";
@@ -83,15 +93,15 @@ export const HERO_METRICS = [
 // ── About Section ──
 
 export const ABOUT_SIGNALS = [
-  { icon: "Zap", label: "Production Delivery", desc: "From scope to stable deployment" },
-  { icon: "Code", label: "Full Ownership", desc: "Schema, APIs, frontend, and testing" },
-  { icon: "Layers", label: "Product Studio", desc: "Django, React, AI, and AWS" },
+  { icon: "Zap", label: "Backend Systems", desc: "APIs, webhooks, and background jobs" },
+  { icon: "Code", label: "Product Delivery", desc: "Schema, frontend, testing, and deployment" },
+  { icon: "Layers", label: "ElixirFlow", desc: "Product engineering studio and parent brand" },
 ] as const;
 
 export const ABOUT_PARAGRAPHS = [
-  "I am a Full-Stack Engineer with 2+ years of production experience building Python, Django, React, and Next.js applications end to end for startups.",
-  "At ElixirFlow, my solo AI product studio, I own systems from PostgreSQL schema design and REST APIs through frontend delivery and AWS deployment.",
-  "I specialise in integration-heavy backends, payment gateways, webhooks, reconciliation, and LLM features built with OpenAI, LangChain, RAG, and agentic workflows.",
+  "I build production web applications with Python, Django, React, and Next.js. My work covers PostgreSQL schema design, REST APIs, frontend integration, testing, and AWS deployment.",
+  "At ElixirFlow, I work as founder and product engineer. I develop products from initial design through implementation, deployment, and client delivery.",
+  "My earlier contract work focused on payment gateway integrations, webhooks, reconciliation, background jobs, and production support for startup applications.",
 ] as const;
 
 // ── Skills Section ──
@@ -188,7 +198,7 @@ export const EXPERIENCES = [
     location: "Remote",
     tags: ["Current Role", "Solo AI Product Studio"],
     summary:
-      "Founded a solo AI product-engineering studio and ship production tools end to end, from design and Django/React development through AWS deployment and client delivery.",
+      "Run a solo AI product engineering studio and develop products from design through Django and React implementation, AWS deployment, and client delivery.",
     achievements: [
       "Built DocChase, a WhatsApp-first document-collection tool for CA firms, with automated request, tracking, and escalation workflows for GST and ITR deadlines",
       "Built DocChase with Django, Celery, Redis, PostgreSQL, and the WhatsApp Business API",
@@ -204,7 +214,7 @@ export const EXPERIENCES = [
     location: "Pune · Remote",
     tags: ["Independent Contractor", "Startup Delivery"],
     summary:
-      "Delivered production web applications for startups through independent, invoice-based engagements, owning work from scoping and implementation to deployment and support.",
+      "Delivered web applications for startups through independent, invoice-based engagements. Work covered scoping, implementation, deployment, and production support.",
     achievements: [
       "Built Python and Django systems with PostgreSQL schema design, REST APIs, React interfaces, and third-party integrations",
       "Integrated SabPaisa, PhonePe, and Pine Labs payment gateways using AES encryption, webhooks, and reconciliation workflows",
@@ -236,7 +246,7 @@ type Project = {
 export const PROJECTS: readonly Project[] = [
   {
     title: "Gyfton",
-    subtitle: "Product Gifting Platform - backend architecture and API development",
+    subtitle: "Product gifting platform: backend architecture and API development",
     status: "Production",
     statusColor: "accent",
     access: { label: "Private · Contract Project", icon: "Lock" },
@@ -275,7 +285,7 @@ export const PROJECTS: readonly Project[] = [
     stack: ["Django", "Celery", "Redis", "PostgreSQL", "WhatsApp Business API"],
     metrics: [],
     highlights: [
-      "Automates request, track, and escalate workflows against GST and ITR filing deadlines",
+      "Automates document requests, tracking, and escalation against GST and ITR filing deadlines",
     ],
     cta: { label: "Open DocChase", href: null },
     github: null,

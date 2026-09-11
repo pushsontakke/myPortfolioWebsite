@@ -202,7 +202,7 @@ The TypeScript alias `@/*` resolves to `src/*`. Prefer existing imports such as 
 | `layout/Sidebar.tsx` | Desktop sidebar, mobile menu, navigation state, social links, theme controls. Keep section IDs and desktop width synchronized with the page. |
 | `layout/Footer.tsx` | Identity, tagline, links, social icons, current-year copyright. Footer links have their own data array. |
 | `layout/ScrollToTop.tsx` | Shows after scrolling more than 600px and scrolls back to the top. |
-| `sections/Hero.tsx` | Identity, rotating role text, headline, résumé/contact CTAs, social links, static metrics, and decorative motion. Some identity text is hardcoded. |
+| `sections/Hero.tsx` | Identity, rotating role text, headline, résumé/contact CTAs, social links, static metrics, studio link, and decorative motion. Some identity text is hardcoded. |
 | `sections/About.tsx` | Signal cards and editorial paragraphs; maps icon names to Lucide components. |
 | `sections/Skills.tsx` | Responsive skill-group grid, learning styles, optional badges; owns another icon map. |
 | `sections/Experience.tsx` | Timeline with one achievements panel expanded at a time. |
